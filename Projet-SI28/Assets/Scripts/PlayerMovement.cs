@@ -25,6 +25,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float gravity_when_on_wall;
     [SerializeField] float wall_jump_force;
     [SerializeField] float jump_time_tolerance;
+    [SerializeField] float wall_time_tolerance;
 
     [Header("Debug")]
     Vector2 velocity;
@@ -32,6 +33,7 @@ public class PlayerMovement : MonoBehaviour
     float deceleration;
     float gravity;
     float last_time_grounded;
+    float time_since_on_wall;
     bool is_on_wall;
     bool wall_on_left;
     bool is_grounded;
@@ -46,13 +48,35 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        /*if (is_on_wall)
+		{
+            time_since_on_wall = 0f;
+            gravity = (velocity.y <= 0) ? 0f : gravity_scale;
+        }
+        if (is_on_wall && time_since_on_wall >= wall_time_tolerance)
+		{
+            Debug.Log("oui");
+            gravity = (velocity.y <= 0) ? gravity_when_on_wall : gravity_scale;
+        }*/
         if (is_on_wall)
 		{
-            gravity = (velocity.y <= 0) ? gravity_when_on_wall : gravity_scale;
-        }
+            if (is_grounded)
+                time_since_on_wall = 0f;
+
+            time_since_on_wall += Time.deltaTime;
+            if (time_since_on_wall < wall_time_tolerance)
+			{
+                gravity = (velocity.y <= 0) ? 0f : gravity_scale;
+            }
+            else
+			{
+                gravity = gravity_when_on_wall;
+            }
+		}
         else
 		{
             gravity = gravity_scale;
+            time_since_on_wall = 0f;
 		}
         if (is_grounded)
 		{
@@ -63,11 +87,15 @@ public class PlayerMovement : MonoBehaviour
 		{
             velocity.y -= gravity * 10 * Time.deltaTime;
         }
+        if (Input.GetButtonDown("Jump") && is_on_wall)
+		{
+            if (!is_grounded)
+                velocity.x = wall_on_left ? wall_jump_force : -wall_jump_force;
+            velocity.y = Mathf.Sqrt(2 * jump_height * gravity_scale * 10);
+        }
         if (Input.GetButton("Jump"))
         {
-            if (is_on_wall)
-                velocity.x = wall_on_left ? wall_jump_force : -wall_jump_force;
-            if ((last_time_grounded <= jump_time_tolerance) || is_on_wall)
+            if ((last_time_grounded <= jump_time_tolerance))
             {
                 velocity.y = Mathf.Sqrt(2 * jump_height * gravity_scale * 10);
                 last_time_grounded += jump_time_tolerance;
