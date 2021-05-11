@@ -5,13 +5,13 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     BoxCollider2D box_collider;
-    
+
     [Header("Detection")]
     [SerializeField] LayerMask what_is_wall;
     [SerializeField] Transform ground_check;
     [SerializeField] Transform left_wall_check;
     [SerializeField] Transform right_wall_check;
-    
+
     [Header("Movement")]
     [SerializeField] float run_acceleration;
     [SerializeField] float air_acceleration;
@@ -19,7 +19,10 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float air_deceleration;
     [SerializeField] float jump_height;
     [SerializeField] float speed;
-    
+    [SerializeField] bool was_facing_right;
+    [SerializeField] bool facing_right;
+    public Transform fire_point;
+
     [Header("Jump")]
     [SerializeField] float gravity_scale;
     [SerializeField] float gravity_when_on_wall;
@@ -59,36 +62,36 @@ public class PlayerMovement : MonoBehaviour
             gravity = (velocity.y <= 0) ? gravity_when_on_wall : gravity_scale;
         }*/
         if (is_on_wall)
-		{
+        {
             if (is_grounded)
                 time_since_on_wall = 0f;
 
             time_since_on_wall += Time.deltaTime;
             if (time_since_on_wall < wall_time_tolerance)
-			{
+            {
                 gravity = (velocity.y <= 0) ? 0f : gravity_scale;
             }
             else
-			{
+            {
                 gravity = gravity_when_on_wall;
             }
-		}
+        }
         else
-		{
+        {
             gravity = gravity_scale;
             time_since_on_wall = 0f;
-		}
+        }
         if (is_grounded)
-		{
+        {
             velocity.y = 0f;
             last_time_grounded = 0f;
-		}
+        }
         else
-		{
+        {
             velocity.y -= gravity * 10 * Time.deltaTime;
         }
         if (Input.GetButtonDown("Jump") && is_on_wall)
-		{
+        {
             if (!is_grounded)
                 velocity.x = wall_on_left ? wall_jump_force : -wall_jump_force;
             velocity.y = Mathf.Sqrt(2 * jump_height * gravity_scale * 10);
@@ -134,11 +137,17 @@ public class PlayerMovement : MonoBehaviour
 
         float horizontal_input = Input.GetAxisRaw("Horizontal");
         if (horizontal_input != 0)
-		{
+        {
+            facing_right = (horizontal_input > 0);
+            if (was_facing_right != facing_right)
+            {
+                was_facing_right = facing_right;
+                Flip();
+            }
             velocity.x = Mathf.MoveTowards(velocity.x, horizontal_input * speed, acceleration * 100 * Time.deltaTime);
-		}
+        }
         else
-		{
+        {
             velocity.x = Mathf.MoveTowards(velocity.x, 0, deceleration * Time.deltaTime);
         }
 
@@ -174,38 +183,50 @@ public class PlayerMovement : MonoBehaviour
     }
 
     void DetectWalls()
-	{
+    {
         is_on_wall = false;
         wall_on_left = false;
 
         if ((left_wall_check != null) && (right_wall_check != null))
-		{
+        {
             wall_on_left = Physics2D.OverlapBox(left_wall_check.position, left_wall_check.localScale, 0f, what_is_wall);
             is_on_wall = wall_on_left || Physics2D.OverlapBox(right_wall_check.position, right_wall_check.localScale, 0f, what_is_wall);
-		}
+        }
     }
 
     void DetectGround()
-	{
+    {
         is_grounded = false;
 
         if (ground_check != null)
-		{
+        {
             is_grounded = Physics2D.OverlapBox(ground_check.position, ground_check.localScale, 0f, what_is_wall);
-		}
-	}
+        }
+    }
 
-	private void OnDrawGizmos()
-	{
+    void Flip()
+    {
+        transform.localScale = new Vector3(-transform.localScale.x, 1f, 1f);
+        //transform.Rotate(0f, 180f, 0f);
+        //int t = facing_right ? 0 : 1;
+        //transform.rotation = Quaternion.Euler(transform.rotation.x, t * 180f, transform.rotation.z);
+        Transform temp = right_wall_check;
+        right_wall_check = left_wall_check;
+        left_wall_check = temp;
+        fire_point.Rotate(0f, 180f, 0f);
+    }
+
+    private void OnDrawGizmos()
+    {
         Gizmos.color = Color.red;
 
         if (left_wall_check != null)
-		{
+        {
             Gizmos.DrawWireCube(left_wall_check.position, left_wall_check.localScale);
-		}
+        }
         if (right_wall_check != null)
-		{
+        {
             Gizmos.DrawWireCube(right_wall_check.position, right_wall_check.localScale);
-		}
+        }
     }
 }
