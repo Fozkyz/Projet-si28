@@ -8,9 +8,12 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("Detection")]
     [SerializeField] LayerMask what_is_wall;
-    [SerializeField] Transform ground_check;
+    [SerializeField] BoxCollider2D ground_check;
     [SerializeField] Transform left_wall_check;
     [SerializeField] Transform right_wall_check;
+
+    [Header("Animation")]
+    [SerializeField] Animator animator;
 
     [Header("Movement")]
     [SerializeField] float run_acceleration;
@@ -106,32 +109,6 @@ public class PlayerMovement : MonoBehaviour
         }
         last_time_grounded += Time.deltaTime;
 
-
-
-        /*if (is_grounded)
-        {
-            velocity.y = 0f;
-            if (Input.GetButton("Jump"))
-            {
-                velocity.y = Mathf.Sqrt(2 * jump_height * gravity * 10);
-            }
-        }
-        else if (is_on_wall)
-		{
-            //gravity = gravity_when_on_wall;
-            velocity.y = (velocity.y <= 0) ? 0f : (velocity.y - gravity * 10 * Time.deltaTime);
-            if (Input.GetButtonDown("Jump"))
-            {
-                velocity.x = wall_on_left ? wall_jump_force : -wall_jump_force;
-                velocity.y = Mathf.Sqrt(2 * jump_height * gravity_scale * 10);
-            }
-        }
-        else
-		{
-            velocity.y -= gravity * 10 * Time.deltaTime;
-            gravity = gravity_scale;
-        }*/
-
         acceleration = is_grounded ? run_acceleration : air_acceleration;
         deceleration = is_grounded ? ground_deceleration : air_deceleration;
 
@@ -145,10 +122,14 @@ public class PlayerMovement : MonoBehaviour
                 Flip();
             }
             velocity.x = Mathf.MoveTowards(velocity.x, horizontal_input * speed, acceleration * 100 * Time.deltaTime);
+
+            animator.SetBool("Running", is_grounded);
         }
         else
         {
             velocity.x = Mathf.MoveTowards(velocity.x, 0, deceleration * Time.deltaTime);
+
+            animator.SetBool("Running", false);
         }
 
         transform.Translate(velocity * Time.deltaTime);
@@ -162,7 +143,6 @@ public class PlayerMovement : MonoBehaviour
 
     void Detect()
     {
-        is_grounded = false;
         if (box_collider != null)
         {
             Collider2D[] hits = Physics2D.OverlapBoxAll(transform.position, box_collider.size, 0);
@@ -200,7 +180,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (ground_check != null)
         {
-            is_grounded = Physics2D.OverlapBox(ground_check.position, ground_check.localScale, 0f, what_is_wall);
+            is_grounded = Physics2D.OverlapBox(ground_check.transform.position, ground_check.size, 0f, what_is_wall);
         }
     }
 
