@@ -6,6 +6,8 @@ public class PlayerMovement : MonoBehaviour
 {
     BoxCollider2D box_collider;
 
+    [SerializeField] GameManager gm;
+
     [Header("Detection")]
     [SerializeField] LayerMask what_is_wall;
     [SerializeField] BoxCollider2D ground_check;
@@ -54,91 +56,82 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        /*if (is_on_wall)
+        if (gm.isPlaying)
 		{
-            time_since_on_wall = 0f;
-            gravity = (velocity.y <= 0) ? 0f : gravity_scale;
-        }
-        if (is_on_wall && time_since_on_wall >= wall_time_tolerance)
-		{
-            Debug.Log("oui");
-            gravity = (velocity.y <= 0) ? gravity_when_on_wall : gravity_scale;
-        }*/
-        if (is_on_wall)
-        {
-            if (is_grounded)
-                time_since_on_wall = 0f;
-
-            time_since_on_wall += Time.deltaTime;
-            if (time_since_on_wall < wall_time_tolerance)
+            if (is_on_wall)
             {
-                gravity = (velocity.y <= 0) ? 0f : gravity_scale;
+                if (is_grounded)
+                    time_since_on_wall = 0f;
+
+                time_since_on_wall += Time.deltaTime;
+                if (time_since_on_wall < wall_time_tolerance)
+                {
+                    gravity = (velocity.y <= 0) ? 0f : gravity_scale;
+                }
+                else
+                {
+                    gravity = gravity_when_on_wall;
+                }
             }
             else
             {
-                gravity = gravity_when_on_wall;
+                gravity = gravity_scale;
+                time_since_on_wall = 0f;
             }
-        }
-        else
-        {
-            gravity = gravity_scale;
-            time_since_on_wall = 0f;
-        }
-        if (is_grounded)
-        {
-            velocity.y = 0f;
-            last_time_grounded = 0f;
-        }
-        else
-        {
-            velocity.y -= gravity * 10 * Time.deltaTime;
-        }
-        if (Input.GetButtonDown("Jump") && is_on_wall)
-        {
-            if (!is_grounded)
-                velocity.x = wall_on_left ? wall_jump_force : -wall_jump_force;
-            velocity.y = Mathf.Sqrt(2 * jump_height * gravity_scale * 10);
-        }
-        if (Input.GetButton("Jump"))
-        {
-            if ((last_time_grounded <= jump_time_tolerance))
+            if (is_grounded)
             {
+                velocity.y = 0f;
+                last_time_grounded = 0f;
+            }
+            else
+            {
+                velocity.y -= gravity * 10 * Time.deltaTime;
+            }
+            if (Input.GetButtonDown("Jump") && is_on_wall)
+            {
+                if (!is_grounded)
+                    velocity.x = wall_on_left ? wall_jump_force : -wall_jump_force;
                 velocity.y = Mathf.Sqrt(2 * jump_height * gravity_scale * 10);
-                last_time_grounded += jump_time_tolerance;
             }
-        }
-        last_time_grounded += Time.deltaTime;
-
-        acceleration = is_grounded ? run_acceleration : air_acceleration;
-        deceleration = is_grounded ? ground_deceleration : air_deceleration;
-
-        float horizontal_input = Input.GetAxisRaw("Horizontal");
-        if (horizontal_input != 0)
-        {
-            facing_right = (horizontal_input > 0);
-            if (was_facing_right != facing_right)
+            if (Input.GetButton("Jump"))
             {
-                was_facing_right = facing_right;
-                Flip();
+                if ((last_time_grounded <= jump_time_tolerance))
+                {
+                    velocity.y = Mathf.Sqrt(2 * jump_height * gravity_scale * 10);
+                    last_time_grounded += jump_time_tolerance;
+                }
             }
-            velocity.x = Mathf.MoveTowards(velocity.x, horizontal_input * speed, acceleration * 100 * Time.deltaTime);
+            last_time_grounded += Time.deltaTime;
 
-            animator.SetBool("Running", is_grounded);
+            acceleration = is_grounded ? run_acceleration : air_acceleration;
+            deceleration = is_grounded ? ground_deceleration : air_deceleration;
+
+            float horizontal_input = Input.GetAxisRaw("Horizontal");
+            if (horizontal_input != 0)
+            {
+                facing_right = (horizontal_input > 0);
+                if (was_facing_right != facing_right)
+                {
+                    was_facing_right = facing_right;
+                    Flip();
+                }
+                velocity.x = Mathf.MoveTowards(velocity.x, horizontal_input * speed, acceleration * 100 * Time.deltaTime);
+
+                animator.SetBool("Running", is_grounded);
+            }
+            else
+            {
+                velocity.x = Mathf.MoveTowards(velocity.x, 0, deceleration * Time.deltaTime);
+
+                animator.SetBool("Running", false);
+            }
+
+            transform.Translate(velocity * Time.deltaTime);
+
+            Detect();
+            DetectGround();
+            DetectWalls();
         }
-        else
-        {
-            velocity.x = Mathf.MoveTowards(velocity.x, 0, deceleration * Time.deltaTime);
-
-            animator.SetBool("Running", false);
-        }
-
-        transform.Translate(velocity * Time.deltaTime);
-
-        Detect();
-        DetectGround();
-        DetectWalls();
-
-        //gravity = gravity_scale;
     }
 
     void Detect()
