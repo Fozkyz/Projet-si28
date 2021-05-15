@@ -62,6 +62,8 @@ public class PlayerMovement : MonoBehaviour
             {
                 if (is_grounded)
                     time_since_on_wall = 0f;
+                
+                animator.SetBool("isOnWall", true);
 
                 time_since_on_wall += Time.deltaTime;
                 if (time_since_on_wall < wall_time_tolerance)
@@ -75,6 +77,7 @@ public class PlayerMovement : MonoBehaviour
             }
             else
             {
+                animator.SetBool("isOnWall", false);
                 gravity = gravity_scale;
                 time_since_on_wall = 0f;
             }
@@ -99,6 +102,8 @@ public class PlayerMovement : MonoBehaviour
                 {
                     velocity.y = Mathf.Sqrt(2 * jump_height * gravity_scale * 10);
                     last_time_grounded += jump_time_tolerance;
+                    //animator.SetBool("isJumping", true);
+                    animator.SetTrigger("Jump");
                 }
             }
             last_time_grounded += Time.deltaTime;
@@ -117,14 +122,32 @@ public class PlayerMovement : MonoBehaviour
                 }
                 velocity.x = Mathf.MoveTowards(velocity.x, horizontal_input * speed, acceleration * 100 * Time.deltaTime);
 
-                animator.SetBool("Running", is_grounded);
+                animator.SetBool("isRunning", is_grounded);
             }
             else
             {
                 velocity.x = Mathf.MoveTowards(velocity.x, 0, deceleration * Time.deltaTime);
 
-                animator.SetBool("Running", false);
+                animator.SetBool("isRunning", false);
             }
+
+            if (is_on_wall && !is_grounded)
+			{
+                if (wall_on_left && !facing_right)
+                {
+                    Flip();
+                    facing_right = true;
+                    was_facing_right = true;
+                }
+                else if (!wall_on_left && facing_right)
+                {
+                    Flip();
+                    facing_right = false;
+                    was_facing_right = false;
+                }
+            }
+
+            animator.SetBool("isGrounded", is_grounded);
 
             transform.Translate(velocity * Time.deltaTime);
 
