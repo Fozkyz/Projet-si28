@@ -26,7 +26,9 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float speed;
     [SerializeField] bool was_facing_right;
     [SerializeField] bool facing_right;
-    public Transform fire_point;
+    [SerializeField] Transform fire_point;
+    [SerializeField] Transform fire_point_ph;
+    [SerializeField] Transform fire_point_on_wall_ph;
 
     [Header("Jump")]
     [SerializeField] float gravity_scale;
@@ -51,6 +53,7 @@ public class PlayerMovement : MonoBehaviour
     {
         box_collider = GetComponent<BoxCollider2D>();
         gravity = gravity_scale;
+        fire_point.position = fire_point_ph.position;
     }
 
     // Update is called once per frame
@@ -62,6 +65,8 @@ public class PlayerMovement : MonoBehaviour
             {
                 if (is_grounded)
                     time_since_on_wall = 0f;
+                else
+                    fire_point.position = fire_point_on_wall_ph.position;
                 
                 animator.SetBool("isOnWall", true);
 
@@ -77,6 +82,7 @@ public class PlayerMovement : MonoBehaviour
             }
             else
             {
+                fire_point.position = fire_point_ph.position;
                 animator.SetBool("isOnWall", false);
                 gravity = gravity_scale;
                 time_since_on_wall = 0f;

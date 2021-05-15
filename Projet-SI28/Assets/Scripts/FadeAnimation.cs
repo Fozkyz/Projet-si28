@@ -12,6 +12,7 @@ public class FadeAnimation : MonoBehaviour
     void Start()
     {
         im = GetComponent<Image>();
+        im.color = Color.black;
         LeanTween.alpha(im.rectTransform, 0f, duration).setEase(in_type);
     }
 
