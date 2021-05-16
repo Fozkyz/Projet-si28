@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cinemachine;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class PlayerMovement : MonoBehaviour
     [Header("Detection")]
     [SerializeField] LayerMask what_is_wall;
     [SerializeField] BoxCollider2D ground_check;
+    [SerializeField] BoxCollider2D ceiling_check;
     [SerializeField] Transform left_wall_check;
     [SerializeField] Transform right_wall_check;
 
@@ -29,6 +31,11 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] Transform fire_point;
     [SerializeField] Transform fire_point_ph;
     [SerializeField] Transform fire_point_on_wall_ph;
+
+    [Header("Camera")]
+    [SerializeField] CinemachineVirtualCamera cam;
+    [SerializeField] float position_y_up;
+    [SerializeField] float position_y_down;
 
     [Header("Jump")]
     [SerializeField] float gravity_scale;
@@ -61,6 +68,18 @@ public class PlayerMovement : MonoBehaviour
     {
         if (gm.isPlaying)
 		{
+            if (Input.GetAxisRaw("Vertical") < 0f)
+			{
+                //var transposer = cam.GetCinemachineComponent<CinemachineTransposer>();
+                var transposer = cam.GetCinemachineComponent<CinemachineFramingTransposer>();
+                transposer.m_TrackedObjectOffset.y = position_y_down;
+			}
+            else
+			{
+                var transposer = cam.GetCinemachineComponent<CinemachineFramingTransposer>();
+                transposer.m_TrackedObjectOffset.y = position_y_up;
+            }
+
             if (is_on_wall)
             {
                 if (is_grounded)
@@ -155,11 +174,12 @@ public class PlayerMovement : MonoBehaviour
 
             animator.SetBool("isGrounded", is_grounded);
 
-            transform.Translate(velocity * Time.deltaTime);
-
             Detect();
             DetectGround();
             DetectWalls();
+            DetectCeiling();
+
+            transform.Translate(velocity * Time.deltaTime);
         }
     }
 
@@ -194,6 +214,11 @@ public class PlayerMovement : MonoBehaviour
             wall_on_left = Physics2D.OverlapBox(left_wall_check.position, left_wall_check.localScale, 0f, what_is_wall);
             is_on_wall = wall_on_left || Physics2D.OverlapBox(right_wall_check.position, right_wall_check.localScale, 0f, what_is_wall);
         }
+        if (is_on_wall)
+		{
+            if (wall_on_left && velocity.x < 0f || !wall_on_left && velocity.x > 0f)
+                velocity.x = 0f;
+		}
     }
 
     void DetectGround()
@@ -206,6 +231,14 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    void DetectCeiling()
+	{
+        if (Physics2D.OverlapBox(ceiling_check.transform.position, ceiling_check.size, 0f, what_is_wall) && velocity.y > 0f)
+		{
+            velocity.y = 0f;
+		}
+	}
+
     void Flip()
     {
         transform.localScale = new Vector3(-transform.localScale.x, 1f, 1f);
@@ -217,6 +250,11 @@ public class PlayerMovement : MonoBehaviour
         left_wall_check = temp;
         fire_point.Rotate(0f, 180f, 0f);
     }
+
+    public void ResetVelocity()
+	{
+        velocity = Vector2.zero;
+	}
 
     private void OnDrawGizmos()
     {
