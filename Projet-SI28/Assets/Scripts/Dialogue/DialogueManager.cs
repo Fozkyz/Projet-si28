@@ -5,30 +5,30 @@ using TMPro;
 
 public class DialogueManager : MonoBehaviour
 {
-
+	[SerializeField] GameObject dialogue_box;
+	[SerializeField] GameObject enter_name_ui;
 	public TMP_Text dialogue_UI;
-	public Dialogue dial;
+	[HideInInspector] public Dialogue dial;
 	bool waiting_for_start;
 	public bool in_dialogue;
+	public bool dialogue1_ended;
 
 	private Queue<string> sentences;
 	private Queue<AudioClip> audioClips;
 	private Queue<float> durations;
-	
 
-	void Start()
+	void Awake()
 	{
-		sentences = new Queue<string>();
-		audioClips = new Queue<AudioClip>();
-		durations = new Queue<float>();
-		waiting_for_start = true;
+		ResetDialogue();
 		StartDialogue();
+		dialogue1_ended = false;
 	}
 
 	void Update()
 	{
 		if (Input.GetKeyDown(KeyCode.E))
 		{
+			CancelInvoke();
 			if (waiting_for_start)
 				StartDialogue();
 			else
@@ -36,9 +36,18 @@ public class DialogueManager : MonoBehaviour
 		}
 	}
 
+	public void ResetDialogue()
+	{
+		sentences = new Queue<string>();
+		audioClips = new Queue<AudioClip>();
+		durations = new Queue<float>();
+		waiting_for_start = true;
+	}
+
 	public void StartDialogue()
 	{
 		Debug.Log("Starting dialogue");
+		dialogue_box.SetActive(true);
 		waiting_for_start = false;
 		sentences.Clear();
 
@@ -92,7 +101,14 @@ public class DialogueManager : MonoBehaviour
 		waiting_for_start = true;
 		dialogue_UI.SetText("");
 		Debug.Log("Finished");
-		in_dialogue = false;
+		dialogue_box.SetActive(false);
+		//in_dialogue = false;
+		if (!dialogue1_ended)
+		{
+			LeanTween.scale(enter_name_ui, Vector3.one, .5f).setEase(LeanTweenType.easeInSine);
+			enter_name_ui.SetActive(true);
+			dialogue1_ended = true;
+		}
 	}
 
 }
