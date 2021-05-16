@@ -6,6 +6,7 @@ public class GameManager : MonoBehaviour
 {
 	[SerializeField] PlayerMovement player;
 	[SerializeField] Transform spawn_point;
+	[SerializeField] DialogueManager dialogue_manager;
 	public float y_boundary;
     public bool isPlaying;
     public bool isOnUltimatum;
@@ -22,6 +23,7 @@ public class GameManager : MonoBehaviour
 		{
 			Die();
 		}
+		isPlaying = !dialogue_manager.in_dialogue;
 	}
 
 	public void Die()

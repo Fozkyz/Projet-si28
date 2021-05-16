@@ -151,7 +151,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.9447323, y: 1}
+    m_SensorSize: {x: 1.8574181, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -599,6 +599,9 @@ MonoBehaviour:
   fire_point: {fileID: 6071900660800532528}
   fire_point_ph: {fileID: 6071900662292360646}
   fire_point_on_wall_ph: {fileID: 6071900660699925753}
+  cam: {fileID: 6071900661140927921}
+  position_y_up: 0
+  position_y_down: 0
   gravity_scale: 5
   gravity_when_on_wall: 3
   wall_jump_force: 33

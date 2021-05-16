@@ -61,21 +61,22 @@ public class PlayerMovement : MonoBehaviour
         box_collider = GetComponent<BoxCollider2D>();
         gravity = gravity_scale;
         fire_point.position = fire_point_ph.position;
+        animator.SetBool("isGrounded", true);
     }
 
     // Update is called once per frame
     void Update()
     {
         if (gm.isPlaying)
-		{
+        {
             if (Input.GetAxisRaw("Vertical") < 0f)
-			{
+            {
                 //var transposer = cam.GetCinemachineComponent<CinemachineTransposer>();
                 var transposer = cam.GetCinemachineComponent<CinemachineFramingTransposer>();
                 transposer.m_TrackedObjectOffset.y = position_y_down;
-			}
+            }
             else
-			{
+            {
                 var transposer = cam.GetCinemachineComponent<CinemachineFramingTransposer>();
                 transposer.m_TrackedObjectOffset.y = position_y_up;
             }
@@ -86,7 +87,7 @@ public class PlayerMovement : MonoBehaviour
                     time_since_on_wall = 0f;
                 else
                     fire_point.position = fire_point_on_wall_ph.position;
-                
+
                 animator.SetBool("isOnWall", true);
 
                 time_since_on_wall += Time.deltaTime;
@@ -157,7 +158,7 @@ public class PlayerMovement : MonoBehaviour
             }
 
             if (is_on_wall && !is_grounded)
-			{
+            {
                 if (wall_on_left && !facing_right)
                 {
                     Flip();
@@ -181,6 +182,8 @@ public class PlayerMovement : MonoBehaviour
 
             transform.Translate(velocity * Time.deltaTime);
         }
+        else if (is_grounded)
+            animator.SetBool("isGrounded", true);
     }
 
     void Detect()
