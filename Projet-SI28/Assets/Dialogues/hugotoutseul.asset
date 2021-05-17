@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: hugotoutseul
   m_EditorClassIdentifier: 
   sentences:
-  - sentence: Haha tro nul comme nom c'est chaud pd
+  - sentence: "Haha tro nul comme nom c'est chaud personne qui appr\xE9cie les gens
+      du m\xEAme sexe"
     audio_clip: {fileID: 0}
     duration: 6
     delay: 0
