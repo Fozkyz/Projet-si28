@@ -14,22 +14,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sentences:
   - sentence: "Hey you, you\u2019re finally awake."
-    audio_clip: {fileID: 0}
+    audio_clip: {fileID: 8300000, guid: 672bd5b85c5db04498f0bf119a135749, type: 3}
     duration: 8
     delay: 3
   - sentence: "You\u2019re probably wondering : What happened ? Where am I ?"
-    audio_clip: {fileID: 0}
+    audio_clip: {fileID: 8300000, guid: 5481fd413c886c24b8c802347f34f673, type: 3}
     duration: 6
     delay: 0
   - sentence: I found you there, lying on the ground.
-    audio_clip: {fileID: 0}
+    audio_clip: {fileID: 8300000, guid: e897523c3cbeedd4d920f18206cba48d, type: 3}
     duration: 5
     delay: 0
   - sentence: I thought you were dead at first.
-    audio_clip: {fileID: 0}
+    audio_clip: {fileID: 8300000, guid: fe5ecd3c388bcc54b9005576a6ec7408, type: 3}
     duration: 5
     delay: 0
   - sentence: Do you remember your name ?
-    audio_clip: {fileID: 0}
+    audio_clip: {fileID: 8300000, guid: 0b991cc5df7920d45b66085fad2fe7d3, type: 3}
     duration: 4
     delay: 0
