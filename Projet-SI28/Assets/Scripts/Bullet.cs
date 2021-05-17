@@ -5,6 +5,7 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     public float speed = 20f;
+    public float lifetime;
     public Rigidbody2D rb;
     [SerializeField] GameObject explosion;
 
@@ -12,6 +13,7 @@ public class Bullet : MonoBehaviour
     void Start()
     {
         rb.velocity = transform.right * speed;
+        Destroy(gameObject, lifetime);
     }
 
 	private void OnTriggerEnter2D(Collider2D collision)

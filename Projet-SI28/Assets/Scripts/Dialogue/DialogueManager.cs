@@ -24,7 +24,7 @@ public class DialogueManager : MonoBehaviour
 
 	void Update()
 	{
-		if (Input.GetKeyDown(KeyCode.E))
+		if (Input.GetKeyDown(KeyCode.E) && in_dialogue)
 		{
 			CancelInvoke();
 			if (waiting_for_start)
@@ -95,9 +95,10 @@ public class DialogueManager : MonoBehaviour
 		dialogue_UI.SetText("");
 		Debug.Log("Finished");
 		dialogue_box.SetActive(false);
-		//in_dialogue = false;
+		in_dialogue = false;
 		if (!dialogue1_ended)
 		{
+			in_dialogue = true;
 			LeanTween.scale(enter_name_ui, Vector3.one, .5f).setEase(LeanTweenType.easeInSine);
 			enter_name_ui.SetActive(true);
 			dialogue1_ended = true;

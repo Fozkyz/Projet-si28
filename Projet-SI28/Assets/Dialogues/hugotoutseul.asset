@@ -13,8 +13,7 @@ MonoBehaviour:
   m_Name: hugotoutseul
   m_EditorClassIdentifier: 
   sentences:
-  - "Coucou bg, je sais pas si tu as d\xE9j\xE0 remarqu\xE9, mais y a diff\xE9rents
-    types de profs."
-  - "Comment tu vas bg, oublie pas de liker la vid\xE9o, de t'abonner et d'activer
-    la cloche fdp"
-  - "A+ bg, j'esp\xE8re te revoir un de ces jours"
+  - sentence: Haha tro nul comme nom c'est chaud pd
+    audio_clip: {fileID: 0}
+    duration: 6
+    delay: 0
