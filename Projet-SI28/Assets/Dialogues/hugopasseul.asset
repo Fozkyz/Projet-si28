@@ -13,20 +13,23 @@ MonoBehaviour:
   m_Name: hugopasseul
   m_EditorClassIdentifier: 
   sentences:
-  - "Hey you, you\u2019re finally awake."
-  - "You\u2019re probably wondering : What happened? Where am I?"
-  - I found you there, lying on the ground.
-  - I thought you were dead at first.
-  - Do you remember your name?
-  audioClips:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  durations:
-  - 8
-  - 5
-  - 5
-  - 5
-  - 5
+  - sentence: "Hey you, you\u2019re finally awake."
+    audio_clip: {fileID: 0}
+    duration: 8
+    delay: 3
+  - sentence: "You\u2019re probably wondering : What happened ? Where am I ?"
+    audio_clip: {fileID: 0}
+    duration: 6
+    delay: 0
+  - sentence: I found you there, lying on the ground.
+    audio_clip: {fileID: 0}
+    duration: 5
+    delay: 0
+  - sentence: I thought you were dead at first.
+    audio_clip: {fileID: 0}
+    duration: 5
+    delay: 0
+  - sentence: Do you remember your name ?
+    audio_clip: {fileID: 0}
+    duration: 4
+    delay: 0

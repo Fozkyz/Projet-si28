@@ -5,22 +5,20 @@ using TMPro;
 
 public class DialogueManager : MonoBehaviour
 {
+	[HideInInspector] public Dialogue dial;
 	[SerializeField] GameObject dialogue_box;
 	[SerializeField] GameObject enter_name_ui;
-	public TMP_Text dialogue_UI;
-	[HideInInspector] public Dialogue dial;
+	[SerializeField] TMP_Text dialogue_UI;
+	[SerializeField] AudioManager audio_manager;
+
 	bool waiting_for_start;
 	public bool in_dialogue;
 	public bool dialogue1_ended;
 
-	private Queue<string> sentences;
-	private Queue<AudioClip> audioClips;
-	private Queue<float> durations;
+	private Queue<Sentence> sentences;
 
 	void Awake()
 	{
-		ResetDialogue();
-		StartDialogue();
 		dialogue1_ended = false;
 	}
 
@@ -38,9 +36,7 @@ public class DialogueManager : MonoBehaviour
 
 	public void ResetDialogue()
 	{
-		sentences = new Queue<string>();
-		audioClips = new Queue<AudioClip>();
-		durations = new Queue<float>();
+		sentences = new Queue<Sentence>();
 		waiting_for_start = true;
 	}
 
@@ -51,16 +47,11 @@ public class DialogueManager : MonoBehaviour
 		waiting_for_start = false;
 		sentences.Clear();
 
-		/*foreach(string sentence in dial.sentences)
+		foreach(Sentence sentence in dial.sentences)
 		{
 			sentences.Enqueue(sentence);
-		}*/
-        for (int i = 0; i < dial.sentences.Length; i++)
-        {
-			sentences.Enqueue(dial.sentences[i]);
-			//audioClips.Enqueue(dial.audioClips[i]);
-			durations.Enqueue(dial.durations[i]);
-        }
+		}
+
 		DisplayNextSentence();
 	}
 
@@ -75,14 +66,16 @@ public class DialogueManager : MonoBehaviour
 		}
 		else
 		{
-			string sentence = sentences.Dequeue();
+			Sentence sentence = sentences.Dequeue();
+			if (sentence.audio_clip != null)
+				audio_manager.PlayClipDelayed(sentence.audio_clip, sentence.delay);
 			StopAllCoroutines();
-			StartCoroutine(TypeSentence(sentence));
+			StartCoroutine(TypeSentence(sentence.sentence, sentence.duration));
 			//dialogue_UI.SetText(sentence);
 		}
 	}
 
-	IEnumerator TypeSentence (string sentence)
+	IEnumerator TypeSentence (string sentence, float wait)
 	{
 		dialogue_UI.SetText("");
 		foreach(char c in sentence.ToCharArray())
@@ -93,7 +86,7 @@ public class DialogueManager : MonoBehaviour
 			else
 				yield return new WaitForSeconds(.01f);
 		}
-		Invoke("DisplayNextSentence", durations.Dequeue());
+		Invoke("DisplayNextSentence", wait);
 	}
 
 	public void EndDialogue()

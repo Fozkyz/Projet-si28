@@ -31,6 +31,7 @@ public class DM_Scene01 : MonoBehaviour
     public void EnteredName()
 	{
         dialogue_manager.in_dialogue = false;
+        //LeanTween.alpha(enter_name_ui, 1, .5f).setEase(LeanTweenType.easeInSine);
         LeanTween.scale(enter_name_ui, Vector3.zero, .5f).setEase(LeanTweenType.easeInSine);
         Invoke("DeactivateUI", .5f);
 	}
