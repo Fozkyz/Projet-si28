@@ -15,34 +15,34 @@ MonoBehaviour:
   sentences:
   - sentence: 'Oh wow... Damn that''s a bad name. '
     audio_clip: {fileID: 8300000, guid: 69f2aba7fd21e754b9f573cc65a32173, type: 3}
-    duration: 8
-    delay: 0
+    duration: 5
+    delay: 0.5
   - sentence: Did your parents have something against you when you were born ?
     audio_clip: {fileID: 8300000, guid: ef91bce5ead9608429e8d33b4c75d0fd, type: 3}
-    duration: 6
+    duration: 4
     delay: 0
   - sentence: Nevermind we'll call you something else.
     audio_clip: {fileID: 8300000, guid: 311bf5d879fac4f48bd300cc44a90f16, type: 3}
-    duration: 6
+    duration: 4
     delay: 0
   - sentence: You seem to be very strong. We could use a strong person like you in
       such dire times.
     audio_clip: {fileID: 8300000, guid: 2831c7f806dce2d40a3e37b8f80db9ee, type: 3}
-    duration: 6
+    duration: 5
     delay: 0
   - sentence: Try to move around using the directional keys.
     audio_clip: {fileID: 8300000, guid: 11f962779a1689540b298c45fc3c22df, type: 3}
-    duration: 6
+    duration: 3
     delay: 0
-  - sentence: You can shoot using SPACE or MOUSE1.
+  - sentence: You can shoot using SHIFT or MOUSE1.
     audio_clip: {fileID: 8300000, guid: 76d306524c11b2e43b65704f460c577d, type: 3}
-    duration: 6
+    duration: 3
     delay: 0
   - sentence: You can also jump on walls by hitting SPACE.
     audio_clip: {fileID: 8300000, guid: f972a70ea18f60945a909bcf7da49f4b, type: 3}
-    duration: 6
+    duration: 3
     delay: 0
   - sentence: Now is your time to shine !
     audio_clip: {fileID: 8300000, guid: 1c169147854d3bc4986b722fe753f6d7, type: 3}
-    duration: 6
+    duration: 3
     delay: 0

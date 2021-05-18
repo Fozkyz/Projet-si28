@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class DM_Scene01 : MonoBehaviour
 {
+    [SerializeField] bool skip_dialogues;
     [SerializeField] DialogueManager dialogue_manager;
     [SerializeField] Dialogue dialogue1;
     [SerializeField] Dialogue dialogue2;
@@ -12,7 +13,8 @@ public class DM_Scene01 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        LaunchDialogue(dialogue1);
+        if (! skip_dialogues)
+            LaunchDialogue(dialogue1);
     }
 
     // Update is called once per frame
@@ -21,7 +23,7 @@ public class DM_Scene01 : MonoBehaviour
 
     }
 
-    void LaunchDialogue(Dialogue dial)
+    public void LaunchDialogue(Dialogue dial)
 	{
         dialogue_manager.dial = dial;
         dialogue_manager.ResetDialogue();

@@ -24,7 +24,6 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float air_acceleration;
     [SerializeField] float ground_deceleration;
     [SerializeField] float air_deceleration;
-    [SerializeField] float jump_height;
     [SerializeField] float speed;
     [SerializeField] bool was_facing_right;
     [SerializeField] bool facing_right;
@@ -38,6 +37,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float position_y_down;
 
     [Header("Jump")]
+    [SerializeField] float jump_height;
     [SerializeField] float gravity_scale;
     [SerializeField] float gravity_when_on_wall;
     [SerializeField] float wall_jump_force;
@@ -183,14 +183,17 @@ public class PlayerMovement : MonoBehaviour
             transform.Translate(velocity * Time.deltaTime);
         }
         else if (is_grounded)
+		{
             animator.SetBool("isGrounded", true);
+            animator.SetBool("isRunning", false);
+		}
     }
 
     void Detect()
     {
         if (box_collider != null)
         {
-            Collider2D[] hits = Physics2D.OverlapBoxAll(transform.position, box_collider.size, 0);
+            Collider2D[] hits = Physics2D.OverlapBoxAll(transform.position, box_collider.size, 0, what_is_wall);
 
             foreach (Collider2D hit in hits)
             {

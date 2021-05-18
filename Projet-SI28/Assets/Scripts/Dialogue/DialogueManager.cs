@@ -42,7 +42,7 @@ public class DialogueManager : MonoBehaviour
 
 	public void StartDialogue()
 	{
-		Debug.Log("Starting dialogue");
+		//Debug.Log("Starting dialogue");
 		dialogue_box.SetActive(true);
 		waiting_for_start = false;
 		sentences.Clear();
@@ -57,7 +57,7 @@ public class DialogueManager : MonoBehaviour
 
 	public void DisplayNextSentence()
 	{
-		Debug.Log("Next sentence");
+		//Debug.Log("Next sentence");
 		in_dialogue = true;
 		if (sentences.Count == 0)
 		{
@@ -93,7 +93,7 @@ public class DialogueManager : MonoBehaviour
 	{
 		waiting_for_start = true;
 		dialogue_UI.SetText("");
-		Debug.Log("Finished");
+		//Debug.Log("Finished");
 		dialogue_box.SetActive(false);
 		in_dialogue = false;
 		if (!dialogue1_ended)
