@@ -1251,7 +1251,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 51988267407983050, guid: 0bced0e0743ce684d81456cc7905530d, type: 3}
       propertyPath: m_Pivot.y
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 51988267407983050, guid: 0bced0e0743ce684d81456cc7905530d, type: 3}
       propertyPath: m_RootOrder
@@ -1263,7 +1263,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 51988267407983050, guid: 0bced0e0743ce684d81456cc7905530d, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 51988267407983050, guid: 0bced0e0743ce684d81456cc7905530d, type: 3}
       propertyPath: m_AnchorMin.x
@@ -1271,7 +1271,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 51988267407983050, guid: 0bced0e0743ce684d81456cc7905530d, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 51988267407983050, guid: 0bced0e0743ce684d81456cc7905530d, type: 3}
       propertyPath: m_SizeDelta.x
@@ -1279,7 +1279,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 51988267407983050, guid: 0bced0e0743ce684d81456cc7905530d, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 120
+      value: 119
       objectReference: {fileID: 0}
     - target: {fileID: 51988267407983050, guid: 0bced0e0743ce684d81456cc7905530d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1315,7 +1315,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 51988267407983050, guid: 0bced0e0743ce684d81456cc7905530d, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -180
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 51988267407983050, guid: 0bced0e0743ce684d81456cc7905530d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1355,7 +1355,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7500129439884900206, guid: 0bced0e0743ce684d81456cc7905530d, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0bced0e0743ce684d81456cc7905530d, type: 3}
@@ -2139,7 +2139,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e1d95e289a06654899540fa4ae64f30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skip_dialogues: 1
+  skip_dialogues: 0
   dialogue_manager: {fileID: 840472080}
   dialogue1: {fileID: 11400000, guid: b2669f66330c21c41ae8073199357b52, type: 2}
   dialogue2: {fileID: 11400000, guid: 819d121002010bf4facbb5e34e6fbb8c, type: 2}
