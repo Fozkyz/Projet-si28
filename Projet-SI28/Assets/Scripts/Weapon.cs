@@ -1,5 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
+using UnityEngine.InputSystem;
 using UnityEngine;
 
 public class Weapon : MonoBehaviour
@@ -14,10 +13,6 @@ public class Weapon : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if ((Input.GetButtonDown("Fire1") || Input.GetKeyDown(KeyCode.LeftShift)) && gm.isPlaying && cooldown <= 0f)
-        {
-            Shoot();
-        }
         cooldown -= Time.deltaTime;
     }
 
@@ -26,4 +21,12 @@ public class Weapon : MonoBehaviour
         cooldown = 1 / fire_rate;
         Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
     }
+
+    public void OnShoot(InputAction.CallbackContext value)
+	{
+        if (value.started && cooldown <= 0f && gm.GetState() == STATE.PLAYING)
+		{
+            Shoot();
+		}
+	}
 }

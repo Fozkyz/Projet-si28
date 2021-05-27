@@ -1,79 +1,75 @@
-using System.Collections;
-using System.Collections.Generic;
+using UnityEngine.InputSystem;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class Ultimatum : MonoBehaviour
 {
 	[SerializeField] GameManager gm;
-    public RectTransform left_panel, right_panel;
-	
-	bool isActive;
+	public RectTransform left_panel, right_panel;
+
 	int selection = 0;
-
-	void Start()
-	{
-		isActive = false;
-	}
-
-	void Update()
-	{
-		if (isActive)
-		{
-			GetActiveInputs();
-			
-		}
-		else
-		{
-			if (Input.GetKeyDown(KeyCode.A))
-			{
-				ActivateUltimatum();
-			}
-		}
-	}
 
 	void ActivateUltimatum()
 	{
-		isActive = true;
 		left_panel.gameObject.SetActive(true);
 		right_panel.gameObject.SetActive(true);
 		selection = 0;
-		gm.isPlaying = false;
-		gm.isOnUltimatum = true;
+		gm.SetState(STATE.ULTIMATUM);
 	}
 
 	void DeactivateUltimatum()
 	{
-		isActive = false;
 		left_panel.gameObject.SetActive(false);
 		right_panel.gameObject.SetActive(false);
 		right_panel.anchorMin = new Vector2(.5f, 0f);
 		right_panel.offsetMin = Vector2.zero;
 		left_panel.anchorMax = new Vector2(.5f, 1f);
 		left_panel.offsetMax = Vector2.zero;
-		gm.isPlaying = true;
-		gm.isOnUltimatum = false;
+		gm.SetState(STATE.PLAYING);
 	}
 
-	void GetActiveInputs()
+	public void OnUltimatumLeft(InputAction.CallbackContext value)
 	{
-		if (Input.GetKeyDown(KeyCode.Q) || Input.GetKeyDown(KeyCode.LeftArrow))
+		if (value.started)
 		{
-			selection = -1;
-			right_panel.anchorMin = new Vector2(.6f, 0f);
-			right_panel.offsetMin = Vector2.zero;
-			left_panel.anchorMax = new Vector2(.6f, 1f);
-			left_panel.offsetMax = Vector2.zero;
+			if (selection == -1)
+			{
+				DeactivateUltimatum();
+				Debug.Log("Selection : " + selection);
+			}
+			else
+			{
+				selection = -1;
+				right_panel.anchorMin = new Vector2(.6f, 0f);
+				right_panel.offsetMin = Vector2.zero;
+				left_panel.anchorMax = new Vector2(.6f, 1f);
+				left_panel.offsetMax = Vector2.zero;
+			}
 		}
-		if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow))
+	}
+
+	public void OnUltimatumRight(InputAction.CallbackContext value)
+	{
+		if (value.started)
 		{
-			selection = 1;
-			right_panel.anchorMin = new Vector2(.4f, 0f);
-			right_panel.offsetMin = Vector2.zero;
-			left_panel.anchorMax = new Vector2(.4f, 1f);
-			left_panel.offsetMax = Vector2.zero;
+			if (selection == 1)
+			{
+				DeactivateUltimatum();
+				Debug.Log("Selection : " + selection);
+			}
+			else
+			{
+				selection = 1;
+				right_panel.anchorMin = new Vector2(.4f, 0f);
+				right_panel.offsetMin = Vector2.zero;
+				left_panel.anchorMax = new Vector2(.4f, 1f);
+				left_panel.offsetMax = Vector2.zero;
+			}
 		}
-		if (Input.GetKeyDown(KeyCode.A))
+	}
+
+	public void OnUltimatumConfirm(InputAction.CallbackContext value)
+	{
+		if (value.started)
 		{
 			DeactivateUltimatum();
 			Debug.Log("Selection : " + selection);

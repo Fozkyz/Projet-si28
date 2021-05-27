@@ -1,53 +1,36 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.InputSystem;
+using UnityEngine.EventSystems;
 using UnityEngine;
 using TMPro;
 
 public class DialogueManager : MonoBehaviour
 {
-	[HideInInspector] public Dialogue dial;
-	[SerializeField] GameObject dialogue_box;
-	[SerializeField] GameObject enter_name_ui;
-	[SerializeField] TMP_Text dialogue_UI;
+	[SerializeField] GameManager game_manager;
 	[SerializeField] AudioManager audio_manager;
+	[SerializeField] GameObject dialogue_box;
+	[SerializeField] TMP_Text dialogue_UI;
 
-	bool waiting_for_start;
-	public bool in_dialogue;
-	public bool dialogue1_ended;
-
+	private Dialogue dial;
 	private Queue<Sentence> sentences;
 
-	void Awake()
-	{
-		dialogue1_ended = false;
-	}
+	private bool in_dialogue;
 
-	void Update()
+	public void ResetDialogue(Dialogue dialogue)
 	{
-		if (Input.GetKeyDown(KeyCode.E) && in_dialogue)
-		{
-			CancelInvoke();
-			if (waiting_for_start)
-				StartDialogue();
-			else
-				DisplayNextSentence();
-		}
-	}
-
-	public void ResetDialogue()
-	{
+		StopDialogue();
+		dial = dialogue;
 		sentences = new Queue<Sentence>();
-		waiting_for_start = true;
 	}
 
 	public void StartDialogue()
 	{
-		//Debug.Log("Starting dialogue");
 		dialogue_box.SetActive(true);
-		waiting_for_start = false;
+		game_manager.SetState(STATE.DIALOGUE);
 		sentences.Clear();
 
-		foreach(Sentence sentence in dial.sentences)
+		foreach (Sentence sentence in dial.sentences)
 		{
 			sentences.Enqueue(sentence);
 		}
@@ -55,7 +38,7 @@ public class DialogueManager : MonoBehaviour
 		DisplayNextSentence();
 	}
 
-	public void DisplayNextSentence()
+	void DisplayNextSentence()
 	{
 		//Debug.Log("Next sentence");
 		in_dialogue = true;
@@ -75,10 +58,10 @@ public class DialogueManager : MonoBehaviour
 		}
 	}
 
-	IEnumerator TypeSentence (string sentence, float wait)
+	IEnumerator TypeSentence(string sentence, float wait)
 	{
 		dialogue_UI.SetText("");
-		foreach(char c in sentence.ToCharArray())
+		foreach (char c in sentence.ToCharArray())
 		{
 			dialogue_UI.text += c;
 			if (c == ' ')
@@ -89,19 +72,27 @@ public class DialogueManager : MonoBehaviour
 		Invoke("DisplayNextSentence", wait);
 	}
 
-	public void EndDialogue()
+	void EndDialogue()
 	{
-		waiting_for_start = true;
 		dialogue_UI.SetText("");
-		//Debug.Log("Finished");
 		dialogue_box.SetActive(false);
 		in_dialogue = false;
-		if (!dialogue1_ended)
+	}
+
+	void StopDialogue()
+	{
+		CancelInvoke();
+		if (in_dialogue)
 		{
-			in_dialogue = true;
-			LeanTween.scale(enter_name_ui, Vector3.one, .5f).setEase(LeanTweenType.easeInSine);
-			enter_name_ui.SetActive(true);
-			dialogue1_ended = true;
+			EndDialogue();
+		}
+	}
+
+	public void OnNextDialogue(InputAction.CallbackContext value)
+	{
+		if (value.started && in_dialogue)
+		{
+			DisplayNextSentence();
 		}
 	}
 
