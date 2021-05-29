@@ -6,12 +6,6 @@ public class Enemy : MonoBehaviour
 {
     [SerializeField] GameManager gm;
     public int health = 100;
-    bool can_kill;
-
-	private void Start()
-	{
-        can_kill = true;
-	}
 
 	public void TakeDamage (int damage)
     {
@@ -27,18 +21,12 @@ public class Enemy : MonoBehaviour
         Destroy(gameObject);
     }
 
-    void ChangeBool()
-	{
-        can_kill = true;
-	}
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Player") && can_kill)
-        {
-            gm.Die();
-            can_kill = false;
-            Invoke("ChangeBool", .5f);
-        }
+        PlayerMovement player = collision.GetComponent<PlayerMovement>();
+        if (player != null && !player.is_invulnerable)
+		{
+            player.GetHit(this);
+		}
     }
 }

@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine.InputSystem;
 using UnityEngine;
 using Cinemachine;
@@ -44,6 +45,17 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float wall_time_tolerance;
     [SerializeField] float jump_time_grounded_tolerance;
 
+    [Header("Dash")]
+    [SerializeField] float dash_force;
+    [SerializeField] float dash_time;
+    [SerializeField] float dash_cooldown;
+
+    [Header("Combat")]
+    [SerializeField] float invulnerability_time;
+    [SerializeField] float knockdown_time;
+    [SerializeField] float knockdown_force;
+    [HideInInspector] public bool is_invulnerable;
+
     [Header("Debug")]
     float horizontal_input;
     Vector2 velocity;
@@ -52,11 +64,13 @@ public class PlayerMovement : MonoBehaviour
     float gravity;
     float last_time_grounded;
     float time_since_on_wall;
-    float time_since_jumping;
+    float last_time_dash;
     bool is_on_wall;
     bool wall_on_left;
     bool is_grounded;
     bool is_jumping;
+    bool is_dashing;
+    bool is_knockingdown;
 
     // Start is called before the first frame update
     void Start()
@@ -65,6 +79,11 @@ public class PlayerMovement : MonoBehaviour
         gravity = gravity_scale;
         fire_point.position = fire_point_ph.position;
         animator.SetBool("isGrounded", true);
+        is_knockingdown = false;
+        is_dashing = false;
+        is_jumping = false;
+        is_on_wall = false;
+        is_invulnerable = false;
     }
 
     // Update is called once per frame
@@ -87,6 +106,7 @@ public class PlayerMovement : MonoBehaviour
             PerformMovement();
 
             last_time_grounded += Time.deltaTime;
+            last_time_dash += Time.deltaTime;
 
             acceleration = is_grounded ? ground_acceleration : air_acceleration;
             deceleration = is_grounded ? ground_deceleration : air_deceleration;
@@ -134,9 +154,17 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    public void OnDash(InputAction.CallbackContext value)
+	{
+        if (value.started && !is_grounded && (last_time_dash >= dash_cooldown) && !is_dashing)
+		{
+            StartCoroutine(PerformDash());
+		}
+	}
+
     void PerformMovement()
     {
-        if (horizontal_input != 0)
+        if (horizontal_input != 0 && !is_dashing && !is_knockingdown)
         {
             facing_right = (horizontal_input > 0);
             if (was_facing_right != facing_right)
@@ -162,7 +190,7 @@ public class PlayerMovement : MonoBehaviour
                 fire_point.position = fire_point_on_wall_ph.position;
 
             animator.SetBool("isOnWall", true);
-
+            last_time_dash = dash_cooldown;
             time_since_on_wall += Time.deltaTime;
             if (time_since_on_wall < wall_time_tolerance)
             {
@@ -183,10 +211,11 @@ public class PlayerMovement : MonoBehaviour
         if (is_grounded)
         {
             last_time_grounded = 0f;
+            last_time_dash = dash_cooldown;
             if (!is_jumping)
                 velocity.y = 0f;
         }
-        else
+        else if (!is_dashing)
         {
             velocity.y -= gravity * 10 * Time.deltaTime;
         }
@@ -195,6 +224,17 @@ public class PlayerMovement : MonoBehaviour
             is_jumping = false;
         }
     }
+
+    IEnumerator PerformDash()
+	{
+        is_dashing = true;
+        velocity.x = facing_right ? dash_force : -dash_force;
+        velocity.y = 0f;
+        yield return new WaitForSeconds(dash_time);
+        velocity.x = 0f;
+        is_dashing = false;
+        last_time_dash = 0f;
+	}
 
     void Detect()
     {
@@ -270,14 +310,34 @@ public class PlayerMovement : MonoBehaviour
     void Flip()
     {
         transform.localScale = new Vector3(-transform.localScale.x, 1f, 1f);
-        //transform.Rotate(0f, 180f, 0f);
-        //int t = facing_right ? 0 : 1;
-        //transform.rotation = Quaternion.Euler(transform.rotation.x, t * 180f, transform.rotation.z);
         Transform temp = right_wall_check;
         right_wall_check = left_wall_check;
         left_wall_check = temp;
         fire_point.Rotate(0f, 180f, 0f);
     }
+
+    public void GetHit(Enemy enemy)
+	{
+        // Faire perdre des points de vie
+        float dir = Mathf.Sign(transform.position.x - enemy.transform.position.x);
+        velocity.x = 0f;
+        StartCoroutine(Knockdown(dir));
+	}
+
+    IEnumerator Knockdown(float dir)
+	{
+        is_knockingdown = true;
+        is_invulnerable = true;
+        velocity.x = dir * knockdown_force;
+        yield return new WaitForSeconds(knockdown_time);
+
+        is_knockingdown = false;
+        velocity.x = 0f;
+        yield return new WaitForSeconds(invulnerability_time - knockdown_time);
+
+        is_invulnerable = false;
+        //--------------------------------------------------------------------------------
+	}
 
     public void ResetVelocity()
     {

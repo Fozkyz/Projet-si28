@@ -28,6 +28,14 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "Dash",
+                    "type": "Button",
+                    "id": "c705a259-c26a-4a6a-ae74-6d0e132abd2a",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -110,8 +118,8 @@
                 },
                 {
                     "name": "",
-                    "id": "2c08b857-3cb3-4790-9ff0-b3e41b381555",
-                    "path": "<Keyboard>/leftShift",
+                    "id": "9173b3ce-aecf-44fb-b1c9-ab18bf08e86a",
+                    "path": "<Mouse>/leftButton",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -121,12 +129,12 @@
                 },
                 {
                     "name": "",
-                    "id": "9173b3ce-aecf-44fb-b1c9-ab18bf08e86a",
-                    "path": "<Mouse>/leftButton",
+                    "id": "a464a826-7d84-4517-9d57-28108b03bbd4",
+                    "path": "<Keyboard>/leftShift",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Shoot",
+                    "action": "Dash",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
