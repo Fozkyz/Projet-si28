@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5243119321305769650}
   - component: {fileID: 5243119321305769653}
+  - component: {fileID: 840472082}
   m_Layer: 0
   m_Name: DialogueManager
   m_TagString: Untagged
@@ -43,6 +44,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a88912fe134e66c4999e4fdc3847a465, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  game_manager: {fileID: 0}
+  audio_manager: {fileID: 0}
+  dialogue_box: {fileID: 0}
   dialogue_UI: {fileID: 0}
-  dial: {fileID: 11400000, guid: b2669f66330c21c41ae8073199357b52, type: 2}
-  in_dialogue: 0
+--- !u!114 &840472082
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5243119321305769652}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e1d95e289a06654899540fa4ae64f30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skip_dialogues: 0
+  dialogue_manager: {fileID: 5243119321305769653}
+  dialogue1: {fileID: 11400000, guid: b2669f66330c21c41ae8073199357b52, type: 2}
+  dialogue2: {fileID: 11400000, guid: 819d121002010bf4facbb5e34e6fbb8c, type: 2}
+  enter_name_ui: {fileID: 0}

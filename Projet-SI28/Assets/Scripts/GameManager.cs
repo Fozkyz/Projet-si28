@@ -34,23 +34,27 @@ public class GameManager : MonoBehaviour
 	public void Die()
 	{
 		player.ResetVelocity();
-		if (life_count >= 1)
+		if (images != null)
 		{
-			player.transform.position = spawn_point.position;
-			images[life_count].SetActive(false);
-			life_count--;
-		}
-		else
-		{
-			player.gameObject.SetActive(false);
-			images[0].SetActive(false);
+			if (life_count >= 1)
+			{
+				player.transform.position = spawn_point.position;
+				images[life_count].SetActive(false);
+				life_count--;
+			}
+			else
+			{
+				player.gameObject.SetActive(false);
+				images[0].SetActive(false);
+			}
 		}
 	}
 
 	public void AddScore(int add)
 	{
 		score += add;
-		score_ui.text = score.ToString();
+		if (score_ui != null)
+			score_ui.text = score.ToString();
 	}
 
 	public STATE GetState()
