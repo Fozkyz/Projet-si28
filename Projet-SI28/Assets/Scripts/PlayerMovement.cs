@@ -122,7 +122,7 @@ public class PlayerMovement : MonoBehaviour
         else if (is_grounded)
         {
             animator.SetBool("isGrounded", true);
-            animator.SetBool("isRunning", false);
+            animator.SetBool("isRunningWeapon", false);
         }
     }
 
@@ -173,13 +173,13 @@ public class PlayerMovement : MonoBehaviour
                 Flip();
             }
             velocity.x = Mathf.MoveTowards(velocity.x, horizontal_input * speed, acceleration * 100 * Time.deltaTime);
-            animator.SetBool("isRunning", is_grounded);
+            animator.SetBool("isRunningWeapon", is_grounded);
         }
         else
         {
             velocity.x = Mathf.MoveTowards(velocity.x, 0, deceleration * Time.deltaTime);
 
-            animator.SetBool("isRunning", false);
+            animator.SetBool("isRunningWeapon", false);
         }
 
         if (is_on_wall)
@@ -230,10 +230,14 @@ public class PlayerMovement : MonoBehaviour
         is_dashing = true;
         velocity.x = facing_right ? dash_force : -dash_force;
         velocity.y = 0f;
+        animator.SetBool("isDashing", true);
+
         yield return new WaitForSeconds(dash_time);
+        
         velocity.x = 0f;
         is_dashing = false;
         last_time_dash = 0f;
+        animator.SetBool("isDashing", false);
 	}
 
     void Detect()
@@ -322,6 +326,7 @@ public class PlayerMovement : MonoBehaviour
         float dir = Mathf.Sign(transform.position.x - enemy.transform.position.x);
         velocity.x = 0f;
         StartCoroutine(Knockdown(dir));
+        gm.GetHit();
 	}
 
     IEnumerator Knockdown(float dir)
@@ -329,10 +334,14 @@ public class PlayerMovement : MonoBehaviour
         is_knockingdown = true;
         is_invulnerable = true;
         velocity.x = dir * knockdown_force;
+        animator.SetBool("isHit", true);
+
         yield return new WaitForSeconds(knockdown_time);
 
         is_knockingdown = false;
         velocity.x = 0f;
+        animator.SetBool("isHit", false);
+
         yield return new WaitForSeconds(invulnerability_time - knockdown_time);
 
         is_invulnerable = false;
@@ -344,7 +353,14 @@ public class PlayerMovement : MonoBehaviour
         velocity = Vector2.zero;
     }
 
-    private void OnDrawGizmos()
+	private void OnEnable()
+	{
+        is_knockingdown = false;
+        is_invulnerable = false;
+        is_dashing = false;
+	}
+
+	private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
 

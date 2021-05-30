@@ -8,6 +8,9 @@ public class Gameover : MonoBehaviour
 
 	void OnEnable()
 	{
-        source.Play();
+		if (source != null)
+		{
+			source.Play();
+		}
 	}
 }

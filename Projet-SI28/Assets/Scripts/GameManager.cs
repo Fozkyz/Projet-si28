@@ -1,7 +1,7 @@
 using UnityEngine;
 using TMPro;
 
-public enum STATE { PLAYING, DIALOGUE, ULTIMATUM }
+public enum STATE { PLAYING, DIALOGUE, ULTIMATUM, GAMEOVER }
 
 public class GameManager : MonoBehaviour
 {
@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour
 	[SerializeField] Transform spawn_point;
 	[SerializeField] TMP_Text score_ui;
 	[SerializeField] GameObject[] images;
-	[SerializeField] AudioSource game_over_sound;
+	[SerializeField] GameObject game_over_ui;
 	[SerializeField] float y_boundary;
 
 	int score;
@@ -31,30 +31,45 @@ public class GameManager : MonoBehaviour
 		}
 	}
 
+	public void GetHit()
+	{
+		if (life_count >= 0)
+		{
+			images[life_count].SetActive(false);
+			life_count--;
+		}
+		else
+		{
+			Die();
+		}
+	}
+
 	public void Die()
 	{
-		player.ResetVelocity();
-		if (images != null)
+		player.gameObject.SetActive(false);
+		game_over_ui.SetActive(true);
+		state = STATE.GAMEOVER;
+	}
+
+	public void Reset()
+	{
+		foreach(GameObject im in images)
 		{
-			if (life_count >= 1)
-			{
-				player.transform.position = spawn_point.position;
-				images[life_count].SetActive(false);
-				life_count--;
-			}
-			else
-			{
-				player.gameObject.SetActive(false);
-				images[0].SetActive(false);
-			}
+			im.SetActive(true);
 		}
+		game_over_ui.SetActive(false);
+		life_count = 2;
+		player.transform.position = spawn_point.position;
+		player.gameObject.SetActive(true);
+		player.ResetVelocity();
+		state = STATE.PLAYING;
 	}
 
 	public void AddScore(int add)
 	{
 		score += add;
 		if (score_ui != null)
-			score_ui.text = score.ToString();
+			score_ui.text = score.ToString("00000");
 	}
 
 	public STATE GetState()
