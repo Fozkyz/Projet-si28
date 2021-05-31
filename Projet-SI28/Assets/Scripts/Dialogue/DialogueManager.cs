@@ -11,11 +11,12 @@ public class DialogueManager : MonoBehaviour
 	[SerializeField] AudioManager audio_manager;
 	[SerializeField] GameObject dialogue_box;
 	[SerializeField] TMP_Text dialogue_UI;
+	[SerializeField] SceneBehaviour behaviour;
 
 	private Dialogue dial;
 	private Queue<Sentence> sentences;
 
-	private bool in_dialogue;
+	bool in_dialogue;
 
 	public void ResetDialogue(Dialogue dialogue)
 	{
@@ -77,6 +78,7 @@ public class DialogueManager : MonoBehaviour
 		dialogue_UI.SetText("");
 		dialogue_box.SetActive(false);
 		in_dialogue = false;
+		behaviour.OnDialogueFinished();
 	}
 
 	void StopDialogue()

@@ -17,4 +17,9 @@ public class SceneBehaviour : MonoBehaviour
     {
         dialogue_manager.StartDialogue();
     }
+
+    public void OnDialogueFinished()
+	{
+        return;
+	}
 }
