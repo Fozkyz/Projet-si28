@@ -122,7 +122,7 @@ public class PlayerMovement : MonoBehaviour
         else if (is_grounded)
         {
             animator.SetBool("isGrounded", true);
-            animator.SetBool("isRunningWeapon", false);
+            animator.SetBool("isRunning", false);
         }
     }
 
@@ -173,13 +173,13 @@ public class PlayerMovement : MonoBehaviour
                 Flip();
             }
             velocity.x = Mathf.MoveTowards(velocity.x, horizontal_input * speed, acceleration * 100 * Time.deltaTime);
-            animator.SetBool("isRunningWeapon", is_grounded);
+            animator.SetBool("isRunning", is_grounded);
         }
         else
         {
             velocity.x = Mathf.MoveTowards(velocity.x, 0, deceleration * Time.deltaTime);
 
-            animator.SetBool("isRunningWeapon", false);
+            animator.SetBool("isRunning", false);
         }
 
         if (is_on_wall)
