@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    public float speed = 20f;
+    public float speed = 50f;
     public float lifetime;
     public Rigidbody2D rb;
     [SerializeField] GameObject explosion;
