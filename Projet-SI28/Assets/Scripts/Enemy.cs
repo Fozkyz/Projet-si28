@@ -6,8 +6,10 @@ public class Enemy : MonoBehaviour
 {
     [SerializeField] GameManager gm;
     public int health = 100;
+    public bool willDropPortal = false;
+    public GameObject prefab;
 
-	public void TakeDamage (int damage)
+    public void TakeDamage (int damage)
     {
         health -= damage;
 
@@ -18,6 +20,8 @@ public class Enemy : MonoBehaviour
     }
     void Die()
     {
+        if (willDropPortal)
+            DropPortal();
         Destroy(gameObject);
     }
 
@@ -28,5 +32,10 @@ public class Enemy : MonoBehaviour
 		{
             player.GetHit(this);
 		}
+    }
+
+    private void DropPortal()
+    {
+        Instantiate(prefab, new Vector3(this.transform.position.x,this.transform.position.y + 2f), this.transform.rotation);
     }
 }
