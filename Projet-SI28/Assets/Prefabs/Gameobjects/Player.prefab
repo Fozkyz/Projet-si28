@@ -691,6 +691,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gm: {fileID: 0}
+  what_is_ground:
+    serializedVersion: 2
+    m_Bits: 128
   what_is_wall:
     serializedVersion: 2
     m_Bits: 128
@@ -726,6 +729,7 @@ MonoBehaviour:
   knockdown_time: 0.2
   knockdown_force: 50
   is_invulnerable: 0
+  velocity: {x: 0, y: 0}
 --- !u!114 &6071900662681397750
 MonoBehaviour:
   m_ObjectHideFlags: 0

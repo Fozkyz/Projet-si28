@@ -4507,6 +4507,10 @@ PrefabInstance:
       propertyPath: gm
       value: 
       objectReference: {fileID: 1678856515}
+    - target: {fileID: 6071900662681397748, guid: f0952c807f286ce45b8b8b9df5933239, type: 3}
+      propertyPath: what_is_ground.m_Bits
+      value: 128
+      objectReference: {fileID: 0}
     - target: {fileID: 6071900662681397749, guid: f0952c807f286ce45b8b8b9df5933239, type: 3}
       propertyPath: m_RootOrder
       value: 4
