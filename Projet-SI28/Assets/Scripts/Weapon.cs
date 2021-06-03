@@ -6,6 +6,7 @@ public class Weapon : MonoBehaviour
     [SerializeField] GameManager gm;
     public Transform firePoint;
     public GameObject bulletPrefab;
+    public GameObject muzzleflashPrefab;
     public float fire_rate;
 
     float cooldown;
@@ -19,7 +20,9 @@ public class Weapon : MonoBehaviour
     void Shoot()
     {
         cooldown = 1 / fire_rate;
+        GameObject muzzleflash = Instantiate(muzzleflashPrefab, firePoint.position, firePoint.rotation);
         Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+        Destroy(muzzleflash, .1f);
     }
 
     public void OnShoot(InputAction.CallbackContext value)

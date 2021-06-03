@@ -10,7 +10,6 @@ public class GameManager : MonoBehaviour
 	[SerializeField] TMP_Text score_ui;
 	[SerializeField] GameObject[] images;
 	[SerializeField] GameObject game_over_ui;
-	[SerializeField] float y_boundary;
 
 	int score;
 	int life_count;
@@ -21,14 +20,6 @@ public class GameManager : MonoBehaviour
 	{
 		life_count = 2;
 		state = STATE.PLAYING;
-	}
-
-	void Update()
-	{
-		if (player.transform.position.y < y_boundary)
-		{
-			Die();
-		}
 	}
 
 	public void GetHit()
@@ -82,9 +73,11 @@ public class GameManager : MonoBehaviour
 		state = new_state;
 	}
 
-	private void OnDrawGizmosSelected()
+	private void OnTriggerExit2D(Collider2D collision)
 	{
-		Gizmos.color = Color.red;
-		Gizmos.DrawLine(new Vector3(-1000f, y_boundary, 0f), new Vector3(1000f, y_boundary, 0f));
+		if (collision.CompareTag("Player"))
+		{
+			Die();
+		}
 	}
 }

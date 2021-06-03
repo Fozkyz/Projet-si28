@@ -10,6 +10,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] GameManager gm;
 
     [Header("Detection")]
+    [SerializeField] LayerMask what_is_ground;
     [SerializeField] LayerMask what_is_wall;
     [SerializeField] BoxCollider2D ground_check;
     [SerializeField] BoxCollider2D ceiling_check;
@@ -57,8 +58,8 @@ public class PlayerMovement : MonoBehaviour
     [HideInInspector] public bool is_invulnerable;
 
     [Header("Debug")]
+    public Vector2 velocity;
     float horizontal_input;
-    Vector2 velocity;
     float acceleration;
     float deceleration;
     float gravity;
@@ -299,7 +300,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (ground_check != null)
         {
-            is_grounded = Physics2D.OverlapBox(ground_check.transform.position, ground_check.size, 0f, what_is_wall);
+            is_grounded = Physics2D.OverlapBox(ground_check.transform.position, ground_check.size, 0f, what_is_ground);
         }
     }
 

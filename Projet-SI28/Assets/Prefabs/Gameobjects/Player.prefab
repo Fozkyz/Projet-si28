@@ -640,7 +640,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6071900662681397754}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.34, y: 7.47, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 6071900661527845191}
@@ -741,6 +741,7 @@ MonoBehaviour:
   gm: {fileID: 0}
   firePoint: {fileID: 6071900660800532528}
   bulletPrefab: {fileID: 5290302169209362121, guid: 7d5b9116305678c4fa2604cd381c86ae, type: 3}
+  muzzleflashPrefab: {fileID: 7874358799804419187, guid: c05dd1d56abf5e245902fbb362a08542, type: 3}
   fire_rate: 6
 --- !u!95 &6071900662681397745
 Animator:
@@ -752,7 +753,7 @@ Animator:
   m_GameObject: {fileID: 6071900662681397754}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: e96cc987fa3e50d45b70ef10e22463c2, type: 2}
+  m_Controller: {fileID: 0}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
