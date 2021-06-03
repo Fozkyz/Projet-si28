@@ -38,6 +38,7 @@ public class GameManager : MonoBehaviour
 	public void Die()
 	{
 		player.gameObject.SetActive(false);
+		player.StopAllCoroutines();
 		game_over_ui.SetActive(true);
 		state = STATE.GAMEOVER;
 	}

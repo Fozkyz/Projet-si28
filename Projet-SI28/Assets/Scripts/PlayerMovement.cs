@@ -321,12 +321,13 @@ public class PlayerMovement : MonoBehaviour
         fire_point.Rotate(0f, 180f, 0f);
     }
 
-    public void GetHit(Enemy enemy)
+    public void GetHit(Transform enemy)
 	{
         // Faire perdre des points de vie
-        float dir = Mathf.Sign(transform.position.x - enemy.transform.position.x);
+        float dir = Mathf.Sign(transform.position.x - enemy.position.x);
         velocity.x = 0f;
-        StartCoroutine(Knockdown(dir));
+        if (this.isActiveAndEnabled)
+            StartCoroutine(Knockdown(dir));
         gm.GetHit();
 	}
 

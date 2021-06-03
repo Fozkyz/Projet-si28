@@ -13994,6 +13994,22 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7967358935288644425, guid: 4e2cc650827ec514ea2e835e734cf39f, type: 3}
+      propertyPath: gm
+      value: 
+      objectReference: {fileID: 1678856515}
+    - target: {fileID: 7967358935288644425, guid: 4e2cc650827ec514ea2e835e734cf39f, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1429688733}
+    - target: {fileID: 7967358935288644425, guid: 4e2cc650827ec514ea2e835e734cf39f, type: 3}
+      propertyPath: radius
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7967358935288644425, guid: 4e2cc650827ec514ea2e835e734cf39f, type: 3}
+      propertyPath: willDropPortal
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7967358935288644427, guid: 4e2cc650827ec514ea2e835e734cf39f, type: 3}
       propertyPath: m_RootOrder
       value: 1

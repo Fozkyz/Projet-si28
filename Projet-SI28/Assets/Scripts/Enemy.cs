@@ -9,6 +9,28 @@ public class Enemy : MonoBehaviour
     public bool willDropPortal = false;
     public GameObject prefab;
 
+    public PlayerMovement player;
+    public float radius;
+
+    public Transform firePoint;
+    public GameObject bulletPrefab;
+    public GameObject muzzleflashPrefab;
+    public float fire_rate;
+    private bool is_shooting = false;
+    private float cooldown;
+
+    void Update()
+    {
+        float distance = Vector3.Distance(player.transform.position, transform.position);
+        cooldown -= Time.deltaTime;
+        if (distance < radius)
+            is_shooting = true;
+        else
+            is_shooting = false;
+        if (is_shooting && cooldown <= 0)
+            Shoot();
+    }
+
     public void TakeDamage (int damage)
     {
         health -= damage;
@@ -18,6 +40,14 @@ public class Enemy : MonoBehaviour
             Die();
         }
     }
+    void Shoot()
+    {
+        cooldown = 1 / fire_rate;
+        GameObject muzzleflash = Instantiate(muzzleflashPrefab, firePoint.position, firePoint.rotation);
+        Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+        Destroy(muzzleflash, .1f);
+    }
+
     void Die()
     {
         if (willDropPortal)
@@ -30,7 +60,7 @@ public class Enemy : MonoBehaviour
         PlayerMovement player = collision.GetComponent<PlayerMovement>();
         if (player != null && !player.is_invulnerable)
 		{
-            player.GetHit(this);
+            player.GetHit(transform);
 		}
     }
 
@@ -38,4 +68,11 @@ public class Enemy : MonoBehaviour
     {
         Instantiate(prefab, new Vector3(this.transform.position.x,this.transform.position.y + 2f), this.transform.rotation);
     }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.white;
+        Gizmos.DrawWireSphere(transform.position, radius);
+    }
 }
+
