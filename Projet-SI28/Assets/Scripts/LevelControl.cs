@@ -17,11 +17,11 @@ public class LevelControl : MonoBehaviour
     }
     void OnTriggerEnter2D(Collider2D collision)
     {
-        //Debug.Log("okok");
+        Debug.Log("okok");
         //Debug.Log(index);
         if (collision.gameObject.CompareTag("Player"))
         {
-            //Debug.Log("coucou");
+            Debug.Log("coucou");
             SceneManager.LoadScene(newindex);
             //SceneManager.LoadScene(levelName);
         }        
