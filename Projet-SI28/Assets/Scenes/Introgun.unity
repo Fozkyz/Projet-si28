@@ -17941,17 +17941,21 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1429688733}
+    - target: {fileID: 7967358935288644425, guid: 4e2cc650827ec514ea2e835e734cf39f, type: 3}
+      propertyPath: willDropPortal
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7967358935288644427, guid: 4e2cc650827ec514ea2e835e734cf39f, type: 3}
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7967358935288644427, guid: 4e2cc650827ec514ea2e835e734cf39f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 18.21
+      value: 106.12
       objectReference: {fileID: 0}
     - target: {fileID: 7967358935288644427, guid: 4e2cc650827ec514ea2e835e734cf39f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -4.76
+      value: -3.67
       objectReference: {fileID: 0}
     - target: {fileID: 7967358935288644427, guid: 4e2cc650827ec514ea2e835e734cf39f, type: 3}
       propertyPath: m_LocalPosition.z
