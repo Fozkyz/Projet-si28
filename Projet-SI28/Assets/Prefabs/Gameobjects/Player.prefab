@@ -625,6 +625,7 @@ GameObject:
   - component: {fileID: 6071900662681397750}
   - component: {fileID: 6071900662681397745}
   - component: {fileID: 587954237}
+  - component: {fileID: -1486664126310103938}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -693,7 +694,7 @@ MonoBehaviour:
   gm: {fileID: 0}
   what_is_ground:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 640
   what_is_wall:
     serializedVersion: 2
     m_Bits: 128
@@ -855,11 +856,36 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: c705a259-c26a-4a6a-ae74-6d0e132abd2a
     m_ActionName: PlayerActionMap/Dash[/Keyboard/leftShift]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 94f478c9-8dea-4ae6-a987-d3ef0fcbc665
+    m_ActionName: PlayerActionMap/PlatformEffector[/Keyboard/s]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: PlayerActionMap
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!50 &-1486664126310103938
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6071900662681397754}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &7119885172071571682
 GameObject:
   m_ObjectHideFlags: 0

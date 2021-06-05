@@ -2,7 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+public interface IDamageable
+{
+    public void TakeDamage(int damage);
+}
+
+public class Enemy : MonoBehaviour, IDamageable
 {
     [SerializeField] GameManager gm;
     public int health = 100;
@@ -31,7 +36,7 @@ public class Enemy : MonoBehaviour
             Shoot();
     }
 
-    public void TakeDamage (int damage)
+    void IDamageable.TakeDamage (int damage)
     {
         health -= damage;
 

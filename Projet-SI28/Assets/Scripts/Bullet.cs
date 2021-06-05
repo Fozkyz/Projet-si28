@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Bullet : MonoBehaviour
@@ -27,12 +25,16 @@ public class Bullet : MonoBehaviour
         }
         else
         {
-            Enemy enemy = collision.GetComponent<Enemy>();
+            IDamageable damageable = collision.GetComponent<IDamageable>();
+            if (damageable != null)
+			{
+                damageable.TakeDamage(40);
+			}
+            /*Enemy enemy = collision.GetComponent<Enemy>();
             if (enemy)
             {
                 enemy.TakeDamage(40);
-            }
-            //Debug.Log("coucou");
+            }*/
             
         }
         if (collision.gameObject.CompareTag("Physical") || collision.gameObject.CompareTag("Player") && enemy_bullet || collision.gameObject.CompareTag("Enemy") && !enemy_bullet)

@@ -297,6 +297,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy
       objectReference: {fileID: 0}
+    - target: {fileID: 7967358935288644422, guid: 4e2cc650827ec514ea2e835e734cf39f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7967358935288644425, guid: 4e2cc650827ec514ea2e835e734cf39f, type: 3}
+      propertyPath: gm
+      value: 
+      objectReference: {fileID: 611406564}
+    - target: {fileID: 7967358935288644425, guid: 4e2cc650827ec514ea2e835e734cf39f, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 829204231}
+    - target: {fileID: 7967358935288644425, guid: 4e2cc650827ec514ea2e835e734cf39f, type: 3}
+      propertyPath: fire_rate
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7967358935288644427, guid: 4e2cc650827ec514ea2e835e734cf39f, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -3145,6 +3161,8 @@ GameObject:
   - component: {fileID: 2124554483}
   - component: {fileID: 2124554482}
   - component: {fileID: 2124554481}
+  - component: {fileID: 2124554484}
+  - component: {fileID: 2124554485}
   m_Layer: 0
   m_Name: Bat
   m_TagString: Untagged
@@ -3231,12 +3249,48 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2124554480}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.83, y: 0.37, z: 0}
-  m_LocalScale: {x: 1.5, y: 1.5, z: 1}
+  m_LocalPosition: {x: 25.59, y: 5.51, z: 0}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2124554484
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2124554480}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d627f2fe09db5b4392861f7319e7091, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 829204231}
+  gm: {fileID: 611406564}
+  detection_range: 20
+  attack_range: 10
+  searching_speed: 7
+  attacking_speed: 15
+  epsilon: 0.1
+  state: 0
+--- !u!58 &2124554485
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2124554480}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.5
 --- !u!1001 &2126881327
 PrefabInstance:
   m_ObjectHideFlags: 0
