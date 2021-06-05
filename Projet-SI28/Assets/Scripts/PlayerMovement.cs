@@ -300,7 +300,22 @@ public class PlayerMovement : MonoBehaviour
 
         if (ground_check != null)
         {
-            is_grounded = Physics2D.OverlapBox(ground_check.transform.position, ground_check.size, 0f, what_is_ground);
+            Collider2D[] hits = Physics2D.OverlapBoxAll(ground_check.transform.position, ground_check.size, 0, what_is_ground);
+
+            foreach(Collider2D hit in hits)
+			{
+                if (hit.CompareTag("Player"))
+                    continue;
+
+                is_grounded = true;
+                ColliderDistance2D colliderDistance = hit.Distance(box_collider);
+
+                if (colliderDistance.isOverlapped)
+                {
+                    transform.Translate(colliderDistance.pointA - colliderDistance.pointB);
+                }
+            }
+            //is_grounded = Physics2D.OverlapBox(ground_check.transform.position, ground_check.size, 0f, what_is_ground);
         }
     }
 

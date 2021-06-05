@@ -24,12 +24,16 @@ public class Enemy : MonoBehaviour, IDamageable
     private bool is_shooting = false;
     private float cooldown;
 
-    void Update()
+	void Update()
     {
         float distance = Vector3.Distance(player.transform.position, transform.position);
         cooldown -= Time.deltaTime;
         if (distance < radius)
+		{
+            if (!is_shooting)
+                cooldown = 1 / fire_rate;
             is_shooting = true;
+		}
         else
             is_shooting = false;
         if (is_shooting && cooldown <= 0)
