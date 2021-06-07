@@ -1745,17 +1745,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d9a19647649cf824fa07ec931bc59cf7, type: 3}
---- !u!114 &840472082 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 840472082, guid: 74c1cccf2a13d6d40866ad4cc167abc3, type: 3}
-  m_PrefabInstance: {fileID: 1110057035}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8e1d95e289a06654899540fa4ae64f30, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &849634938 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4291462595342208158, guid: d9a19647649cf824fa07ec931bc59cf7, type: 3}
@@ -3320,7 +3309,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a6973f70126e0941b911187fd0c82a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dm: {fileID: 840472082}
+  dm: {fileID: 0}
 --- !u!1001 &1328998252
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3880,7 +3869,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 840472082}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: DM_Scene01, Assembly-CSharp
         m_MethodName: EnteredName
         m_Mode: 1
@@ -5601,7 +5590,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2067049029
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5618,10 +5607,10 @@ RectTransform:
   m_Father: {fileID: 308882763}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 800, y: 450}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &2078805977
 PrefabInstance:
@@ -6123,6 +6112,10 @@ PrefabInstance:
     - target: {fileID: 6130841949118134681, guid: 65f18bfd11ce6a648a0a8ec3764242b7, type: 3}
       propertyPath: m_Name
       value: Game_over_ui
+      objectReference: {fileID: 0}
+    - target: {fileID: 6130841949118134681, guid: 65f18bfd11ce6a648a0a8ec3764242b7, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6130841949118134682, guid: 65f18bfd11ce6a648a0a8ec3764242b7, type: 3}
       propertyPath: m_Pivot.x

@@ -9,12 +9,12 @@ public class LevelControl : MonoBehaviour
     int index;
     int newindex;
 
-        private void Start()
+    private void Start()
     {
         index = SceneManager.GetActiveScene().buildIndex;
         newindex = index + 1;
-
     }
+
     void OnTriggerEnter2D(Collider2D collision)
     {
         //Debug.Log("okok");

@@ -5,6 +5,7 @@ using UnityEngine;
 public class Dialogue : ScriptableObject
 {
     public Sentence[] sentences;
+    public bool stop_action;
 }
 
 [System.Serializable]

@@ -72,10 +72,12 @@ public class PlayerMovement : MonoBehaviour
     bool is_jumping;
     bool is_dashing;
     bool is_knockingdown;
+    bool waiting_for_start;
 
     // Start is called before the first frame update
     void Start()
     {
+        waiting_for_start = true;
         box_collider = GetComponent<BoxCollider2D>();
         gravity = gravity_scale;
         fire_point.position = fire_point_ph.position;
@@ -118,7 +120,8 @@ public class PlayerMovement : MonoBehaviour
             DetectWalls();
             DetectCeiling();
 
-            transform.Translate(velocity * Time.deltaTime);
+            if (!waiting_for_start)
+                transform.Translate(velocity * Time.deltaTime);
         }
         else if (is_grounded)
         {
@@ -130,12 +133,14 @@ public class PlayerMovement : MonoBehaviour
     public void OnMovement(InputAction.CallbackContext value)
     {
         horizontal_input = value.ReadValue<float>();
+        waiting_for_start = false;
     }
 
     public void OnJump(InputAction.CallbackContext value)
     {
         if (value.started)
         {
+            waiting_for_start = false;
             is_jumping = true;
             if (is_on_wall)
             {

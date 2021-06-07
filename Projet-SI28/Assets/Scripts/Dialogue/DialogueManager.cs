@@ -28,7 +28,10 @@ public class DialogueManager : MonoBehaviour
 	public void StartDialogue()
 	{
 		dialogue_box.SetActive(true);
-		game_manager.SetState(STATE.DIALOGUE);
+		if (dial.stop_action)
+			game_manager.SetState(STATE.DIALOGUE);
+		else
+			game_manager.SetState(STATE.PLAYING);
 		sentences.Clear();
 
 		foreach (Sentence sentence in dial.sentences)
@@ -78,6 +81,7 @@ public class DialogueManager : MonoBehaviour
 		dialogue_UI.SetText("");
 		dialogue_box.SetActive(false);
 		in_dialogue = false;
+		game_manager.SetState(STATE.PLAYING);
 		behaviour.OnDialogueFinished();
 	}
 
@@ -94,6 +98,7 @@ public class DialogueManager : MonoBehaviour
 	{
 		if (value.started && in_dialogue)
 		{
+			CancelInvoke();
 			DisplayNextSentence();
 		}
 	}
