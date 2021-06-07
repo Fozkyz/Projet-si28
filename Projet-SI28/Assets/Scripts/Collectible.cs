@@ -7,6 +7,7 @@ public class Collectible : MonoBehaviour
     [SerializeField] GameManager gm;
 	[SerializeField] int value;
 
+
 	private void OnTriggerEnter2D(Collider2D collision)
 	{
 		if (collision.gameObject.CompareTag("Player"))
@@ -15,4 +16,6 @@ public class Collectible : MonoBehaviour
 			gameObject.SetActive(false);
 		}
 	}
+
+	
 }

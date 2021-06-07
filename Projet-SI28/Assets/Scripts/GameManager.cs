@@ -78,7 +78,7 @@ public class GameManager : MonoBehaviour
 	{
 		if (collision.CompareTag("Player"))
 		{
-			Die();
+			Reset();
 		}
 	}
 }
