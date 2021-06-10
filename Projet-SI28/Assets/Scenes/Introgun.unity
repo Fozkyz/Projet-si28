@@ -4615,7 +4615,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6130841949118134682, guid: 65f18bfd11ce6a648a0a8ec3764242b7, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6130841949118134682, guid: 65f18bfd11ce6a648a0a8ec3764242b7, type: 3}
       propertyPath: m_AnchorMax.x
@@ -4812,12 +4812,52 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 9110673042594062508, guid: 7786bec063262534ba666c0c0f6590c1, type: 3}
   m_PrefabInstance: {fileID: 1678856514}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1678856516}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 773dd183ea54af54f8fc71eef8228578, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1678856516 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9110673042594062507, guid: 7786bec063262534ba666c0c0f6590c1, type: 3}
+  m_PrefabInstance: {fileID: 1678856514}
+  m_PrefabAsset: {fileID: 0}
+--- !u!60 &1678856517
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1678856516}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 142.77682, y: 3.0919065}
+      - {x: 168.99567, y: 6.9351263}
+      - {x: 187.03519, y: 7.1945043}
+      - {x: 197.51932, y: 5.139448}
+      - {x: 194.08125, y: 37.873856}
+      - {x: 105.270645, y: 37.612846}
+      - {x: 56.43555, y: 22.557364}
+      - {x: -23.830332, y: 9.15567}
+      - {x: -24.077177, y: -17.282097}
+      - {x: 131.96567, y: -18.604013}
 --- !u!4 &1734648323 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4291462595342208158, guid: d9a19647649cf824fa07ec931bc59cf7, type: 3}
