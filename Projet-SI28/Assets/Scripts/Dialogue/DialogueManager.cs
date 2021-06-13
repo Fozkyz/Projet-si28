@@ -27,7 +27,9 @@ public class DialogueManager : MonoBehaviour
 
 	public void StartDialogue()
 	{
-		dialogue_box.SetActive(true);
+		Debug.Log("Eho");
+		if (dialogue_box != null)
+			dialogue_box.SetActive(true);
 		if (dial.stop_action)
 			game_manager.SetState(STATE.DIALOGUE);
 		else
@@ -57,8 +59,10 @@ public class DialogueManager : MonoBehaviour
 			if (sentence.audio_clip != null)
 				audio_manager.PlayClipDelayed(sentence.audio_clip, sentence.delay);
 			StopAllCoroutines();
-			StartCoroutine(TypeSentence(sentence.sentence, sentence.duration));
-			//dialogue_UI.SetText(sentence);
+			if (dialogue_box != null)
+				StartCoroutine(TypeSentence(sentence.sentence, sentence.duration));
+			else
+				Invoke("DisplayNextSentence", sentence.duration);
 		}
 	}
 
@@ -78,8 +82,11 @@ public class DialogueManager : MonoBehaviour
 
 	void EndDialogue()
 	{
-		dialogue_UI.SetText("");
-		dialogue_box.SetActive(false);
+		if (dialogue_box != null)
+		{
+			dialogue_UI.SetText("");
+			dialogue_box.SetActive(false);
+		}
 		in_dialogue = false;
 		game_manager.SetState(STATE.PLAYING);
 		behaviour.OnDialogueFinished();
@@ -102,5 +109,4 @@ public class DialogueManager : MonoBehaviour
 			DisplayNextSentence();
 		}
 	}
-
 }

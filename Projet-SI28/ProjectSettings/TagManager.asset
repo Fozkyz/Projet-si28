@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Physical
   - Enemy
+  - Music
   layers:
   - Default
   - TransparentFX
