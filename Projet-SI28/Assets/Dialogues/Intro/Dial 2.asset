@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7d61cc4a7e8116409df2bd1d5a2326c, type: 3}
+  m_Name: Dial 2
+  m_EditorClassIdentifier: 
+  sentences:
+  - sentence: 'Oh wow... Damn that''s a bad name. '
+    audio_clip: {fileID: 8300000, guid: 2624658deec73d547b2403eb68e04e05, type: 3}
+    duration: 5
+    delay: 0.5
+  - sentence: Did your parents have something against you when you were born ?
+    audio_clip: {fileID: 8300000, guid: 37429f5c33fbdbc4f80566c884023a9c, type: 3}
+    duration: 4
+    delay: 0
+  - sentence: Nevermind we'll call you something else.
+    audio_clip: {fileID: 8300000, guid: 9b963c678f3a5a2478807a9f5e439a5c, type: 3}
+    duration: 4
+    delay: 0
+  - sentence: You seem to be very strong. We could use a strong person like you in
+      such dire times.
+    audio_clip: {fileID: 8300000, guid: f16007b8305ff154b9685d20414e980f, type: 3}
+    duration: 5
+    delay: 0
+  - sentence: Try to move around using the directional keys.
+    audio_clip: {fileID: 8300000, guid: 90f79907749845741ac6cf6f07f0b4b0, type: 3}
+    duration: 3
+    delay: 0
+  - sentence: You can also jump on walls by hitting SPACE.
+    audio_clip: {fileID: 8300000, guid: b203926e341e10f4d86b4b051c220605, type: 3}
+    duration: 3
+    delay: 0
+  - sentence: Now try to get to the end of the level.
+    audio_clip: {fileID: 8300000, guid: 261f2dea970beb541a9c0a6219511589, type: 3}
+    duration: 3
+    delay: 0
+  stop_action: 0

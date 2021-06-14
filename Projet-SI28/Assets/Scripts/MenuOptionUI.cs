@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MenuOptionUI : MonoBehaviour
 {
@@ -31,5 +32,12 @@ public class MenuOptionUI : MonoBehaviour
 	void Deactivate()
 	{
 		go.SetActive(false);
+	}
+
+	public void Play()
+	{
+		int index = SceneManager.GetActiveScene().buildIndex;
+		int newindex = index + 1;
+		SceneManager.LoadScene(newindex);
 	}
 }

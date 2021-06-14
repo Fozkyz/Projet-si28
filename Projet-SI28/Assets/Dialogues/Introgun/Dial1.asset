@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7d61cc4a7e8116409df2bd1d5a2326c, type: 3}
+  m_Name: Dial1
+  m_EditorClassIdentifier: 
+  sentences:
+  - sentence: Wait, that was nos supposed to happen.
+    audio_clip: {fileID: 8300000, guid: 19fd929a67c53c94ba6ba74b1d79823c, type: 3}
+    duration: 4
+    delay: 0.5
+  - sentence: It has to be this fucking clown, I knew I should have fought him.
+    audio_clip: {fileID: 8300000, guid: 69c21e55b9ea39f46bdb67e15f18ec01, type: 3}
+    duration: 4
+    delay: 0
+  - sentence: It has to be this fucking clown, I knew I should have fought him.
+    audio_clip: {fileID: 8300000, guid: 69c21e55b9ea39f46bdb67e15f18ec01, type: 3}
+    duration: 4
+    delay: 0
+  stop_action: 0

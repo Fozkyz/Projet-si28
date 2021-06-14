@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e7d61cc4a7e8116409df2bd1d5a2326c, type: 3}
-  m_Name: hugotoutseul
+  m_Name: hugotoutseul 1
   m_EditorClassIdentifier: 
   sentences:
   - sentence: 'Oh wow... Damn that''s a bad name. '
@@ -46,3 +46,4 @@ MonoBehaviour:
     audio_clip: {fileID: 8300000, guid: 1c169147854d3bc4986b722fe753f6d7, type: 3}
     duration: 3
     delay: 0
+  stop_action: 0

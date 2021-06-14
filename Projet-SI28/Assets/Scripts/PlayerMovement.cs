@@ -375,6 +375,11 @@ public class PlayerMovement : MonoBehaviour
         velocity = Vector2.zero;
     }
 
+    public void StopGravity()
+	{
+        gravity_scale *= 0.1f;
+	}
+
 	private void OnEnable()
 	{
         is_knockingdown = false;

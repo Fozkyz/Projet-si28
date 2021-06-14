@@ -8,8 +8,23 @@ public class DataContainer : SceneBehaviour
     bool waiting;
     int i;
 
-    // Start is called before the first frame update
-    void Start()
+    private DataContainer instance;
+
+	private void Awake()
+	{
+		if (instance != null)
+		{
+            Destroy(gameObject);
+		}
+        else
+		{
+            instance = this;
+            DontDestroyOnLoad(transform.gameObject);
+		}
+	}
+
+	// Start is called before the first frame update
+	void Start()
     {
         music_volume = 1f;
         voice_volume = 1f;

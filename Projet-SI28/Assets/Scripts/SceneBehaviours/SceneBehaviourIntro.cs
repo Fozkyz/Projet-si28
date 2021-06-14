@@ -64,10 +64,17 @@ public class SceneBehaviourIntro : SceneBehaviour
 
 	private void OnTriggerEnter2D(Collider2D collision)
 	{
-		if (collision.CompareTag("Player"))
+		PlayerMovement pm = collision.GetComponentInChildren<PlayerMovement>();
+		if (pm != null)
 		{
-			Debug.Log("hit");
-			SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+			pm.StopGravity();
+			fade_anim.PlayAnimBack();
+			Invoke("ChangeScene", 1f);
 		}
+	}
+
+	void ChangeScene()
+	{
+		SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
 	}
 }
