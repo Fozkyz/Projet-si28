@@ -6,6 +6,7 @@ public class Parallax : MonoBehaviour
 {
 	[SerializeField] GameObject cam;
     [SerializeField] float parallax_effect;
+	[SerializeField] bool follow_y;
 
 	float length;
 	Vector3 start_pos;
@@ -28,7 +29,11 @@ public class Parallax : MonoBehaviour
 		float temp = cam.transform.position.x * (1 - parallax_effect);
 
 		//transform.position = start_pos + Vector3.right * distx;
-		transform.position = new Vector3(start_pos.x + distx, start_pos.y + cam.transform.position.y - cam_y_start, start_pos.z);
+		Vector3 newpos = start_pos + Vector3.right * distx;
+		if (follow_y)
+			newpos += Vector3.up * (cam.transform.position.y - cam_y_start);
+		transform.position = newpos;
+		//transform.position = new Vector3(start_pos.x + distx, start_pos.y + cam.transform.position.y - cam_y_start, start_pos.z);
 		
 		if (temp > start_pos.x + length)
 		{
