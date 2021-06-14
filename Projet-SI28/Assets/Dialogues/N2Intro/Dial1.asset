@@ -36,4 +36,8 @@ MonoBehaviour:
     audio_clip: {fileID: 8300000, guid: 2095c384953c8e54a8f600d4a6765db3, type: 3}
     duration: 4
     delay: 0.5
+  - sentence: Boring monologue that you can't skip.
+    audio_clip: {fileID: 8300000, guid: 94aeaa8ea0801b7479535de796a4c599, type: 3}
+    duration: 4
+    delay: 0.5
   stop_action: 1

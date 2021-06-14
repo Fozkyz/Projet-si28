@@ -10,11 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e7d61cc4a7e8116409df2bd1d5a2326c, type: 3}
-  m_Name: Monologue
+  m_Name: Dial1
   m_EditorClassIdentifier: 
   sentences:
-  - sentence: Boring monologue.
-    audio_clip: {fileID: 8300000, guid: 94aeaa8ea0801b7479535de796a4c599, type: 3}
-    duration: 20
+  - sentence: Oh and I forgot to mention, you can dash while in the air by hitting
+      SHIFT.
+    audio_clip: {fileID: 8300000, guid: 8e472b74bcaa3fa4c87f3249299a1213, type: 3}
+    duration: 4
     delay: 0.5
   stop_action: 1

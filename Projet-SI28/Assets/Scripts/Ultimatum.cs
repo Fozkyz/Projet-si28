@@ -3,12 +3,19 @@ using UnityEngine;
 
 public class Ultimatum : MonoBehaviour
 {
+	[SerializeField] SceneBehaviourIntrogun scene_behaviour;
 	[SerializeField] GameManager gm;
 	public RectTransform left_panel, right_panel;
 
-	int selection = 0;
+	int selection;
 
-	void ActivateUltimatum()
+    private void OnEnable()
+    {
+		selection = 0;
+		ActivateUltimatum();
+    }
+
+    void ActivateUltimatum()
 	{
 		left_panel.gameObject.SetActive(true);
 		right_panel.gameObject.SetActive(true);
@@ -29,16 +36,16 @@ public class Ultimatum : MonoBehaviour
 
 	public void OnUltimatumLeft(InputAction.CallbackContext value)
 	{
-		if (value.started)
+		if (value.started && gm.GetState() == STATE.ULTIMATUM)
 		{
-			if (selection == -1)
+			if (selection == 1)
 			{
 				DeactivateUltimatum();
-				Debug.Log("Selection : " + selection);
+				scene_behaviour.Selection(selection);
 			}
 			else
 			{
-				selection = -1;
+				selection = 1;
 				right_panel.anchorMin = new Vector2(.6f, 0f);
 				right_panel.offsetMin = Vector2.zero;
 				left_panel.anchorMax = new Vector2(.6f, 1f);
@@ -49,16 +56,16 @@ public class Ultimatum : MonoBehaviour
 
 	public void OnUltimatumRight(InputAction.CallbackContext value)
 	{
-		if (value.started)
+		if (value.started && gm.GetState() == STATE.ULTIMATUM)
 		{
-			if (selection == 1)
+			if (selection == 2)
 			{
 				DeactivateUltimatum();
-				Debug.Log("Selection : " + selection);
+				scene_behaviour.Selection(selection);
 			}
 			else
 			{
-				selection = 1;
+				selection = 2;
 				right_panel.anchorMin = new Vector2(.4f, 0f);
 				right_panel.offsetMin = Vector2.zero;
 				left_panel.anchorMax = new Vector2(.4f, 1f);
@@ -69,10 +76,10 @@ public class Ultimatum : MonoBehaviour
 
 	public void OnUltimatumConfirm(InputAction.CallbackContext value)
 	{
-		if (value.started)
+		if (value.started && selection != 0)
 		{
 			DeactivateUltimatum();
-			Debug.Log("Selection : " + selection);
+			scene_behaviour.Selection(selection);
 		}
 	}
 }

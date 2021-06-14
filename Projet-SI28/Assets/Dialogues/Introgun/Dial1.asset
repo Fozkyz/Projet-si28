@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: Dial1
   m_EditorClassIdentifier: 
   sentences:
-  - sentence: Wait, that was nos supposed to happen.
+  - sentence: Wait, that was not supposed to happen.
     audio_clip: {fileID: 8300000, guid: 19fd929a67c53c94ba6ba74b1d79823c, type: 3}
     duration: 4
-    delay: 0.5
+    delay: 0
   - sentence: It has to be this fucking clown, I knew I should have fired him.
     audio_clip: {fileID: 8300000, guid: 69c21e55b9ea39f46bdb67e15f18ec01, type: 3}
     duration: 4

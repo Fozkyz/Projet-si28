@@ -92,7 +92,8 @@ public class DialogueManager : MonoBehaviour
 		}
 		in_dialogue = false;
 		game_manager.SetState(STATE.PLAYING);
-		behaviour.OnDialogueFinished();
+		if (behaviour != null)
+			behaviour.OnDialogueFinished();
 	}
 
 	void StopDialogue()

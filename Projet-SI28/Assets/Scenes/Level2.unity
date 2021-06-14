@@ -171,6 +171,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cam: {fileID: 1069398487}
   parallax_effect: 0
+  follow_y: 0
 --- !u!212 &21795717
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -844,6 +845,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cam: {fileID: 1069398487}
   parallax_effect: 0
+  follow_y: 0
 --- !u!212 &368315471
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1024,6 +1026,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cam: {fileID: 1069398487}
   parallax_effect: 0
+  follow_y: 0
 --- !u!212 &621867410
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3239,6 +3242,10 @@ PrefabInstance:
       value: DialogueManager
       objectReference: {fileID: 0}
     - target: {fileID: 5243119321305769653, guid: 74c1cccf2a13d6d40866ad4cc167abc3, type: 3}
+      propertyPath: behaviour
+      value: 
+      objectReference: {fileID: 2042077306}
+    - target: {fileID: 5243119321305769653, guid: 74c1cccf2a13d6d40866ad4cc167abc3, type: 3}
       propertyPath: dialogue_UI
       value: 
       objectReference: {fileID: 858674374}
@@ -3261,12 +3268,99 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5243119321305769653, guid: 74c1cccf2a13d6d40866ad4cc167abc3, type: 3}
   m_PrefabInstance: {fileID: 1187759551}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1187759553}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a88912fe134e66c4999e4fdc3847a465, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1187759553 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5243119321305769652, guid: 74c1cccf2a13d6d40866ad4cc167abc3, type: 3}
+  m_PrefabInstance: {fileID: 1187759551}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1187759554
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1187759553}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: 5f2e8f4fe727a984d9620139f56f882b, type: 3}
+  m_NotificationBehavior: 2
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents:
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: c5971953-e3fd-457c-9775-4130eac14f39
+    m_ActionName: PlayerActionMap/Movement[/Keyboard/a,/Keyboard/d,/Keyboard/leftArrow,/Keyboard/rightArrow]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 387e7e69-b60a-497a-aade-eb59d70e6787
+    m_ActionName: PlayerActionMap/Jump[/Keyboard/space]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 8c3dd0d2-1517-4362-8087-a82d24aa1321
+    m_ActionName: PlayerActionMap/Shoot[/Mouse/leftButton]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: c705a259-c26a-4a6a-ae74-6d0e132abd2a
+    m_ActionName: PlayerActionMap/Dash[/Keyboard/leftShift]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 94f478c9-8dea-4ae6-a987-d3ef0fcbc665
+    m_ActionName: PlayerActionMap/PlatformEffector[/Keyboard/s]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1187759552}
+        m_TargetAssemblyTypeName: DialogueManager, Assembly-CSharp
+        m_MethodName: OnNextDialogue
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: be51b927-bcea-4237-b6e1-f3dac47ca107
+    m_ActionName: PlayerActionMap/SkipDialogue[/Keyboard/e]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 96605439-1018-4960-9bce-919eb728b4cd
+    m_ActionName: PlayerActionMap/PressEnter[/Keyboard/enter,/Keyboard/numpadEnter]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 4b1a39c3-e57d-415b-99c9-42d63aeb677d
+    m_ActionName: PlayerActionMap/PressEsc[/Keyboard/escape]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 431ad44a-3ca9-4957-99e3-71b4906bfc4c
+    m_ActionName: PlayerActionMap/UltimatumLeft[/Keyboard/a,/Keyboard/leftArrow]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 255656bf-7ecf-44ea-8282-82ef6796a352
+    m_ActionName: PlayerActionMap/UltimatumRight[/Keyboard/d,/Keyboard/rightArrow]
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: PlayerActionMap
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
 --- !u!1001 &1188726936
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4047,6 +4141,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cam: {fileID: 1069398487}
   parallax_effect: 0
+  follow_y: 0
 --- !u!212 &1775552200
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -10511,6 +10606,52 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d9a19647649cf824fa07ec931bc59cf7, type: 3}
+--- !u!1 &2042077304
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2042077305}
+  - component: {fileID: 2042077306}
+  m_Layer: 0
+  m_Name: SceneBehaviour
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2042077305
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2042077304}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 15
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2042077306
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2042077304}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 828f94ab8fdef534a9b0974f4e10ee06, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue_manager: {fileID: 1187759552}
+  dialogues:
+  - {fileID: 11400000, guid: cd6af57b3d1dc3e4e9bca91922a19615, type: 2}
 --- !u!1001 &2046579462
 PrefabInstance:
   m_ObjectHideFlags: 0

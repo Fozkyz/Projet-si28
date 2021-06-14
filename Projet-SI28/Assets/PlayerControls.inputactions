@@ -68,6 +68,22 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "Hold"
+                },
+                {
+                    "name": "UltimatumLeft",
+                    "type": "Button",
+                    "id": "431ad44a-3ca9-4957-99e3-71b4906bfc4c",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Hold"
+                },
+                {
+                    "name": "UltimatumRight",
+                    "type": "Button",
+                    "id": "255656bf-7ecf-44ea-8282-82ef6796a352",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Hold"
                 }
             ],
             "bindings": [
@@ -222,6 +238,50 @@
                     "processors": "",
                     "groups": "",
                     "action": "PressEsc",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "a7d68046-7ebd-4d9b-bf72-dca8842bd5d7",
+                    "path": "<Keyboard>/a",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "UltimatumLeft",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "3b19913b-8ba4-40bd-aac2-bc11b1b24913",
+                    "path": "<Keyboard>/leftArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "UltimatumLeft",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "cb2f7006-f1e9-45dd-9ccb-728fe340f2ac",
+                    "path": "<Keyboard>/d",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "UltimatumRight",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "a726fccf-7004-41f4-ad15-ab2ad7944bcb",
+                    "path": "<Keyboard>/rightArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "UltimatumRight",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

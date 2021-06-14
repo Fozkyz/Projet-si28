@@ -19,6 +19,8 @@ public class DataContainer : SceneBehaviour
         else
 		{
             instance = this;
+            music_volume = 1;
+            voice_volume = 1;
             DontDestroyOnLoad(transform.gameObject);
 		}
         Debug.Log("Awake");
