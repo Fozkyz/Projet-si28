@@ -1,0 +1,50 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7d61cc4a7e8116409df2bd1d5a2326c, type: 3}
+  m_Name: Dial2
+  m_EditorClassIdentifier: 
+  sentences:
+  - sentence: You didn't really think that I was gonna let you take a sword didn't
+      you?
+    audio_clip: {fileID: 8300000, guid: 1960d7a05f189fa40a49c5271ee57c18, type: 3}
+    duration: 4
+    delay: 0.5
+  - sentence: Now that's too much, I hereby banish you from this game.
+    audio_clip: {fileID: 8300000, guid: 78bd6b733a4766f4bb5284a58ef935bb, type: 3}
+    duration: 4
+    delay: 0.5
+  - sentence: Bu-but... you cannot do that ! *Disappears*
+    audio_clip: {fileID: 8300000, guid: dd9849776d960df43a003aaf087a0d7a, type: 3}
+    duration: 4
+    delay: 0.5
+  - sentence: So where were we..? Ah yes, the tutorial.
+    audio_clip: {fileID: 8300000, guid: 17880ef959c4762429ecb1fbcc0d86c5, type: 3}
+    duration: 4
+    delay: 0.5
+  - sentence: So where were we..? Ah yes, the tutorial.
+    audio_clip: {fileID: 8300000, guid: 17880ef959c4762429ecb1fbcc0d86c5, type: 3}
+    duration: 4
+    delay: 0.5
+  - sentence: 'I forgot to mention the last time, but you can shoot with your using
+      MOUSE1 '
+    audio_clip: {fileID: 8300000, guid: e5bcf139c9087be4cb4de8533975cbb0, type: 3}
+    duration: 4
+    delay: 0.5
+  - sentence: You can also wall jump when you're close to a wall bypressing space.
+    audio_clip: {fileID: 8300000, guid: dfb47245ff61ad048b73ecf667a56a6e, type: 3}
+    duration: 4
+    delay: 0.5
+  - sentence: Now you're good to go, finish it fast, I'm getting bored.
+    audio_clip: {fileID: 8300000, guid: 8879d3b025679324e9022492a2acef24, type: 3}
+    duration: 4
+    delay: 0.5
+  stop_action: 0

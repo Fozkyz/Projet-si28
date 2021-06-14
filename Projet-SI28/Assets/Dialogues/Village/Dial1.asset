@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7d61cc4a7e8116409df2bd1d5a2326c, type: 3}
+  m_Name: Dial1
+  m_EditorClassIdentifier: 
+  sentences:
+  - sentence: Oh and I forgot to mention, you can dash while in the air by hitting
+      SHIFT.
+    audio_clip: {fileID: 8300000, guid: 8e472b74bcaa3fa4c87f3249299a1213, type: 3}
+    duration: 4
+    delay: 0.5
+  - sentence: We finally arrived at the village, it is one of the only safe zones
+      since the king's daughter has been taken away.
+    audio_clip: {fileID: 8300000, guid: 23e4cd8cf50f72f439980d074d6cb0ec, type: 3}
+    duration: 4
+    delay: 0.5
+  - sentence: The mission is simple, we need you to rescue the princess.
+    audio_clip: {fileID: 8300000, guid: da2166b5a9802cf4a82d9827938928f9, type: 3}
+    duration: 4
+    delay: 0.5
+  stop_action: 0

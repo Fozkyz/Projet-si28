@@ -955,6 +955,47 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4291462595342208158, guid: d9a19647649cf824fa07ec931bc59cf7, type: 3}
   m_PrefabInstance: {fileID: 561577802}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &572271148 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9110673042594062507, guid: 7786bec063262534ba666c0c0f6590c1, type: 3}
+  m_PrefabInstance: {fileID: 1678856514}
+  m_PrefabAsset: {fileID: 0}
+--- !u!60 &572271149
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 572271148}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 123.767044, y: -11.0184965}
+      - {x: 136.45728, y: -8.258949}
+      - {x: 139.39375, y: -4.023303}
+      - {x: 141.64404, y: 23.89085}
+      - {x: 114.773895, y: 42.909683}
+      - {x: 100.68595, y: 44.690933}
+      - {x: 62.31342, y: 43.80489}
+      - {x: 29.687775, y: 40.92457}
+      - {x: -27.465143, y: 17.091301}
+      - {x: -26.799139, y: -14.282144}
+      - {x: 67.71489, y: -13.811675}
 --- !u!1 &598447906
 GameObject:
   m_ObjectHideFlags: 0
@@ -4732,7 +4773,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6130841949118134682, guid: 65f18bfd11ce6a648a0a8ec3764242b7, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6130841949118134682, guid: 65f18bfd11ce6a648a0a8ec3764242b7, type: 3}
       propertyPath: m_AnchorMax.x
@@ -4929,7 +4970,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 9110673042594062508, guid: 7786bec063262534ba666c0c0f6590c1, type: 3}
   m_PrefabInstance: {fileID: 1678856514}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 572271148}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 773dd183ea54af54f8fc71eef8228578, type: 3}

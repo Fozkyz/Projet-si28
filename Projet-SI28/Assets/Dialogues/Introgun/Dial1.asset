@@ -17,12 +17,30 @@ MonoBehaviour:
     audio_clip: {fileID: 8300000, guid: 19fd929a67c53c94ba6ba74b1d79823c, type: 3}
     duration: 4
     delay: 0.5
-  - sentence: It has to be this fucking clown, I knew I should have fought him.
+  - sentence: It has to be this fucking clown, I knew I should have fired him.
     audio_clip: {fileID: 8300000, guid: 69c21e55b9ea39f46bdb67e15f18ec01, type: 3}
     duration: 4
     delay: 0
-  - sentence: It has to be this fucking clown, I knew I should have fought him.
-    audio_clip: {fileID: 8300000, guid: 69c21e55b9ea39f46bdb67e15f18ec01, type: 3}
+  - sentence: What do you mean fire me? You would be nowhere without me.
+    audio_clip: {fileID: 8300000, guid: a9a8943591045e34aa3defff287ebbc9, type: 3}
+    duration: 4
+    delay: 0
+  - sentence: Now is no time for your childish arguments.
+    audio_clip: {fileID: 8300000, guid: 6d747f5b15808994fb8edace63faf283, type: 3}
+    duration: 4
+    delay: 0
+  - sentence: " Leave us alone! So i was saying, here\u2019s a powerful sword to
+      kill the enemies!"
+    audio_clip: {fileID: 8300000, guid: 51cfa413ecb49a4449155c013a7a7751, type: 3}
+    duration: 4
+    delay: 0
+  - sentence: "Psst, psst. Don\u2019t you think that a sword is a bit too lame? Wouldn\u2019t
+      you rather have a gun?"
+    audio_clip: {fileID: 8300000, guid: 3c2343d1bf76ed448bc9bad9a2241b2e, type: 3}
+    duration: 4
+    delay: 0
+  - sentence: "Don\u2019t listen to him, he\u2019s a bad influence\u2026"
+    audio_clip: {fileID: 8300000, guid: 265f75694e64b194b8476be68c48b72c, type: 3}
     duration: 4
     delay: 0
   stop_action: 0
