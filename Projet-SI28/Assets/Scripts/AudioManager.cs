@@ -8,7 +8,7 @@ public class AudioManager : MonoBehaviour
 	DataContainer container;
 	AudioSource source;
 
-	void Awake()
+	void Start()
 	{
 		source = GetComponent<AudioSource>();
 		container = FindObjectOfType<DataContainer>();
@@ -17,9 +17,9 @@ public class AudioManager : MonoBehaviour
 	void Update()
 	{
 		if (type == TYPE.MUSIC)
-			source.volume = container.music_volume;
+			source.volume = DataContainer.instance.music_volume;
 		else
-			source.volume = container.voice_volume;
+			source.volume = DataContainer.instance.voice_volume;
 	}
 
 	public void PlayClipDelayed(AudioClip clip, float delay)

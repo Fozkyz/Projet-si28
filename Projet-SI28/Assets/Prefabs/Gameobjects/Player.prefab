@@ -748,6 +748,7 @@ MonoBehaviour:
   bulletPrefab: {fileID: 5290302169209362121, guid: 7d5b9116305678c4fa2604cd381c86ae, type: 3}
   muzzleflashPrefab: {fileID: 7874358799804419187, guid: c05dd1d56abf5e245902fbb362a08542, type: 3}
   fire_rate: 6
+  hasWeapon: 1
 --- !u!95 &6071900662681397745
 Animator:
   serializedVersion: 3
@@ -860,6 +861,14 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 94f478c9-8dea-4ae6-a987-d3ef0fcbc665
     m_ActionName: PlayerActionMap/PlatformEffector[/Keyboard/s]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: be51b927-bcea-4237-b6e1-f3dac47ca107
+    m_ActionName: PlayerActionMap/SkipDialogue[/Keyboard/e]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 96605439-1018-4960-9bce-919eb728b4cd
+    m_ActionName: PlayerActionMap/PressEnter[/Keyboard/enter,/Keyboard/numpadEnter]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: PlayerActionMap

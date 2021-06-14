@@ -1,146 +1,132 @@
 Using pre-set license
 Built from '2021.1/staging' branch; Version is '2021.1.3f1 (4bef613afd59) revision 4976481'; Using compiler version '192528614'; Build Type 'Release'
-OS: 'Windows 10 Pro; OS build 19042.1052; Version 2009; 64bit' Language: 'fr' Physical Memory: 16320 MB
+OS: 'Windows 10 Home; OS build 19041.1052; Version 2004; 64bit' Language: 'fr' Physical Memory: 16321 MB
 BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 0
 
  COMMAND LINE ARGUMENTS:
-C:\Program Files\Unity\Hub\Editor\2021.1.3f1\Editor\Unity.exe
+G:\Programmation\Unity\2021.1.3f1\Editor\Unity.exe
 -adb2
 -batchMode
 -noUpm
 -name
 AssetImportWorker0
 -projectPath
-C:/Users/wahar/Downloads/r-silience-master/Projet-si28/Projet-SI28
+G:/Programmation/Github/Projet-si28/Projet-SI28
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
-58036
-Successfully changed project path to: C:/Users/wahar/Downloads/r-silience-master/Projet-si28/Projet-SI28
-C:/Users/wahar/Downloads/r-silience-master/Projet-si28/Projet-SI28
+49292
+Successfully changed project path to: G:/Programmation/Github/Projet-si28/Projet-SI28
+G:/Programmation/Github/Projet-si28/Projet-SI28
 Using Asset Import Pipeline V2.
-Refreshing native plugins compatible for Editor in 60.43 ms, found 1 plugins.
+Refreshing native plugins compatible for Editor in 77.85 ms, found 1 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2021.1.3f1 (4bef613afd59)
-[Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2021.1.3f1/Editor/Data/Resources/UnitySubsystems
-[Subsystems] Discovering subsystems at path C:/Users/wahar/Downloads/r-silience-master/Projet-si28/Projet-SI28/Assets
+[Subsystems] Discovering subsystems at path G:/Programmation/Unity/2021.1.3f1/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path G:/Programmation/Github/Projet-si28/Projet-SI28/Assets
 GfxDevice: creating device client; threaded=0; jobified=0
 Direct3D:
     Version:  Direct3D 11.0 [level 11.1]
-    Renderer: NVIDIA GeForce GTX 1060 6GB (ID=0x1c03)
+    Renderer: NVIDIA GeForce GTX 1650 SUPER (ID=0x2187)
     Vendor:   NVIDIA
-    VRAM:     6052 MB
-    Driver:   27.21.14.6677
+    VRAM:     3955 MB
+    Driver:   27.21.14.6647
 Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
 Initialize mono
-Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2021.1.3f1/Editor/Data/Managed'
-Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2021.1.3f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
-Mono config path = 'C:/Program Files/Unity/Hub/Editor/2021.1.3f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56272
+Mono path[0] = 'G:/Programmation/Unity/2021.1.3f1/Editor/Data/Managed'
+Mono path[1] = 'G:/Programmation/Unity/2021.1.3f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
+Mono config path = 'G:/Programmation/Unity/2021.1.3f1/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56524
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
-Register platform support module: C:/Program Files/Unity/Hub/Editor/2021.1.3f1/Editor/Data/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll
-Register platform support module: C:/Program Files/Unity/Hub/Editor/2021.1.3f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.002444 seconds.
+Register platform support module: G:/Programmation/Unity/2021.1.3f1/Editor/Data/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll
+Register platform support module: G:/Programmation/Unity/2021.1.3f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Registered in 0.002424 seconds.
 Native extension for WindowsStandalone target not found
 Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 68.41 ms, found 1 plugins.
+Refreshing native plugins compatible for Editor in 74.21 ms, found 1 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  1.208 seconds
+- Completed reload, in  1.505 seconds
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
-Registered in 0.001292 seconds.
+Registered in 0.001970 seconds.
 Begin MonoManager ReloadAssembly
 Native extension for WindowsStandalone target not found
 Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 69.03 ms, found 1 plugins.
+Refreshing native plugins compatible for Editor in 76.90 ms, found 1 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  1.065 seconds
+- Completed reload, in  1.325 seconds
 Platform modules already initialized, skipping
 ========================================================================
 Worker process is ready to serve import requests
 Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
-Launched and connected shader compiler UnityShaderCompiler.exe after 0.04 seconds
-Refreshing native plugins compatible for Editor in 0.68 ms, found 1 plugins.
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.08 seconds
+Refreshing native plugins compatible for Editor in 0.64 ms, found 1 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 3505 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 156.5 MB.
-System memory in use after: 156.8 MB.
+Unloading 3506 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 156.6 MB.
+System memory in use after: 156.7 MB.
 
-Unloading 22 unused Assets to reduce memory usage. Loaded Objects now: 3969.
-Total: 2.677100 ms (FindLiveObjects: 0.346400 ms CreateObjectMapping: 0.082900 ms MarkObjects: 2.185300 ms  DeleteObjects: 0.061500 ms)
+Unloading 27 unused Assets to reduce memory usage. Loaded Objects now: 3965.
+Total: 3.406600 ms (FindLiveObjects: 0.374500 ms CreateObjectMapping: 0.139400 ms MarkObjects: 2.728600 ms  DeleteObjects: 0.163100 ms)
+
+========================================================================
+Received Prepare
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Refreshing native plugins compatible for Editor in 2.49 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 11 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 80.9 MB.
+System memory in use after: 81.0 MB.
+
+Unloading 11 unused Assets to reduce memory usage. Loaded Objects now: 3965.
+Total: 4.056400 ms (FindLiveObjects: 0.447200 ms CreateObjectMapping: 0.425200 ms MarkObjects: 3.060700 ms  DeleteObjects: 0.122100 ms)
 
 ========================================================================
 Received Import Request.
-  path: Assets/Dialogues/Introgun 1/Dial2.asset
-  artifactKey: Guid(861bb9f1e0132e74f9668e04dbf09506) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Dialogues/Introgun 1/Dial2.asset using Guid(861bb9f1e0132e74f9668e04dbf09506) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7437d9f5eb3265436051fa1af2a01508') in 0.029844 seconds 
+  path: Assets/Scenes/N2Intro.unity
+  artifactKey: Guid(7a82fea2bfadceb45bb7693d611c8c95) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/N2Intro.unity using Guid(7a82fea2bfadceb45bb7693d611c8c95) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9412e2e4dc7466d9ad8a2583e4911288') in 0.017782 seconds 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.001988 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 0.75 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.195 seconds
+Platform modules already initialized, skipping
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Refreshing native plugins compatible for Editor in 0.64 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3381 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 148.2 MB.
+System memory in use after: 148.3 MB.
+
+Unloading 13 unused Assets to reduce memory usage. Loaded Objects now: 3969.
+Total: 5.640900 ms (FindLiveObjects: 0.356200 ms CreateObjectMapping: 0.188400 ms MarkObjects: 4.906600 ms  DeleteObjects: 0.187300 ms)
+
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000161 seconds.
-  path: Assets/Dialogues/Introgun 1/Dial1.asset
-  artifactKey: Guid(bf30899643c7cf2449754f3dc7162261) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Dialogues/Introgun 1/Dial1.asset using Guid(bf30899643c7cf2449754f3dc7162261) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8f9805927b3d800c91c2459bf5aaa3bb') in 0.003651 seconds 
+  Time since last request: 68.410967 seconds.
+  path: Assets/Scenes/N2Intro.unity
+  artifactKey: Guid(7a82fea2bfadceb45bb7693d611c8c95) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/N2Intro.unity using Guid(7a82fea2bfadceb45bb7693d611c8c95) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c179f47c008a836bd1d18abc012b3147') in 0.014100 seconds 
 ========================================================================
-Received Import Request.
-  Time since last request: 3.458881 seconds.
-  path: Assets/Dialogues/Introgun 1
-  artifactKey: Guid(96186a5b8fb3ed843bfae26d3fbda80d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Dialogues/Introgun 1 using Guid(96186a5b8fb3ed843bfae26d3fbda80d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '282a7ea333e70d1eeec438c162f3af44') in 0.006684 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 12.369583 seconds.
-  path: Assets/Dialogues/Introgun/Dial1 1.asset
-  artifactKey: Guid(633036ea1ed51c843bb2ca5d86ed070e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Dialogues/Introgun/Dial1 1.asset using Guid(633036ea1ed51c843bb2ca5d86ed070e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'dd655e0609f4e43c1f6e53c543c8e5a7') in 0.004403 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 11.316235 seconds.
-  path: Assets/Dialogues/Introgun/Dial1.asset
-  artifactKey: Guid(633036ea1ed51c843bb2ca5d86ed070e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Dialogues/Introgun/Dial1.asset using Guid(633036ea1ed51c843bb2ca5d86ed070e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '86d1636e41b2e0efbd4427d99692da1f') in 0.003876 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 145.549980 seconds.
-  path: Assets/Dialogues/Village/Dial1.asset
-  artifactKey: Guid(cd6af57b3d1dc3e4e9bca91922a19615) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Dialogues/Village/Dial1.asset using Guid(cd6af57b3d1dc3e4e9bca91922a19615) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd6e77809a11d8772a586e150d3adab9b') in 0.003138 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 23.002646 seconds.
-  path: Assets/Dialogues/N2Intro/Dial1.asset
-  artifactKey: Guid(a303463a63897944ab7ea1e9627ee9e2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Dialogues/N2Intro/Dial1.asset using Guid(a303463a63897944ab7ea1e9627ee9e2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6b8bf3af94021f12e12bf72b27b691d1') in 0.002987 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 18.408397 seconds.
-  path: Assets/Dialogues/N2Intro/Dial1.asset
-  artifactKey: Guid(a303463a63897944ab7ea1e9627ee9e2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Dialogues/N2Intro/Dial1.asset using Guid(a303463a63897944ab7ea1e9627ee9e2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3f594465d03a488f31096a9fa7b7979b') in 0.003227 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 229.737444 seconds.
-  path: Assets/Dialogues/N2Intro/Dial1 1.asset
-  artifactKey: Guid(8c64c050ea1e80e4d8cd298ff37d193b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Dialogues/N2Intro/Dial1 1.asset using Guid(8c64c050ea1e80e4d8cd298ff37d193b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '58ee15e3a29a80bfe30054ce0dd233ac') in 0.003430 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000157 seconds.
-  path: Assets/Dialogues/N2Intro/Dial1.asset
-  artifactKey: Guid(a303463a63897944ab7ea1e9627ee9e2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Dialogues/N2Intro/Dial1.asset using Guid(a303463a63897944ab7ea1e9627ee9e2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ef88458ede6d79df58c5b28cf2c46cf4') in 0.003439 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 8.676840 seconds.
-  path: Assets/Dialogues/N2Intro/Monologue.asset
-  artifactKey: Guid(8c64c050ea1e80e4d8cd298ff37d193b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Dialogues/N2Intro/Monologue.asset using Guid(8c64c050ea1e80e4d8cd298ff37d193b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '695ab45847c82eeb0dcef1e58e4003a9') in 0.008647 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 26.353057 seconds.
-  path: Assets/Dialogues/N2Intro/Monologue.asset
-  artifactKey: Guid(8c64c050ea1e80e4d8cd298ff37d193b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Dialogues/N2Intro/Monologue.asset using Guid(8c64c050ea1e80e4d8cd298ff37d193b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0aff463a557fe1d93f0698ba55560ecc') in 0.002943 seconds 
+Received Prepare
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Refreshing native plugins compatible for Editor in 2.78 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 11 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 81.4 MB.
+System memory in use after: 81.5 MB.
+
+Unloading 11 unused Assets to reduce memory usage. Loaded Objects now: 3969.
+Total: 4.158600 ms (FindLiveObjects: 0.384800 ms CreateObjectMapping: 0.350600 ms MarkObjects: 3.298000 ms  DeleteObjects: 0.123500 ms)
+
 AssetImportWorkerClient::OnTransportError - code=2 error=End of file

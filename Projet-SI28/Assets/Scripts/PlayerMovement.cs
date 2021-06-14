@@ -94,18 +94,6 @@ public class PlayerMovement : MonoBehaviour
     {
         if (gm.GetState() == STATE.PLAYING)
         {
-            /*if (Input.GetAxisRaw("Vertical") < 0f)
-            {
-                //var transposer = cam.GetCinemachineComponent<CinemachineTransposer>();
-                var transposer = cam.GetCinemachineComponent<CinemachineFramingTransposer>();
-                transposer.m_TrackedObjectOffset.y = position_y_down;
-            }
-            else
-            {
-                var transposer = cam.GetCinemachineComponent<CinemachineFramingTransposer>();
-                transposer.m_TrackedObjectOffset.y = position_y_up;
-            }*/
-
             PerformMovement();
 
             last_time_grounded += Time.deltaTime;
@@ -138,7 +126,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void OnJump(InputAction.CallbackContext value)
     {
-        if (value.started)
+        if (value.started && gm.GetState() == STATE.PLAYING)
         {
             waiting_for_start = false;
             is_jumping = true;

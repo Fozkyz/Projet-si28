@@ -60,6 +60,14 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "Hold"
+                },
+                {
+                    "name": "PressEsc",
+                    "type": "Button",
+                    "id": "4b1a39c3-e57d-415b-99c9-42d63aeb677d",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Hold"
                 }
             ],
             "bindings": [
@@ -203,6 +211,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "PressEnter",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "6ba03b72-0933-44f2-bb4d-7be681123d5a",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "PressEsc",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

@@ -8,6 +8,7 @@ public class Weapon : MonoBehaviour
     public GameObject bulletPrefab;
     public GameObject muzzleflashPrefab;
     public float fire_rate;
+    public bool hasWeapon;
 
     float cooldown;
 
@@ -27,7 +28,7 @@ public class Weapon : MonoBehaviour
 
     public void OnShoot(InputAction.CallbackContext value)
 	{
-        if (value.started && cooldown <= 0f && gm.GetState() == STATE.PLAYING)
+        if (value.started && hasWeapon && cooldown <= 0f && gm.GetState() == STATE.PLAYING)
 		{
             Shoot();
 		}

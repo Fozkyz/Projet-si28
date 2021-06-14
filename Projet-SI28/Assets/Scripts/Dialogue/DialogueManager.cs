@@ -27,21 +27,24 @@ public class DialogueManager : MonoBehaviour
 
 	public void StartDialogue()
 	{
-		Debug.Log("Eho");
-		if (dialogue_box != null)
-			dialogue_box.SetActive(true);
-		if (dial.stop_action)
-			game_manager.SetState(STATE.DIALOGUE);
-		else
-			game_manager.SetState(STATE.PLAYING);
-		sentences.Clear();
-
-		foreach (Sentence sentence in dial.sentences)
+		if (dial != null)
 		{
-			sentences.Enqueue(sentence);
-		}
+			if (dialogue_box != null)
+				dialogue_box.SetActive(true);
 
-		DisplayNextSentence();
+			if (dial.stop_action)
+				game_manager.SetState(STATE.DIALOGUE);
+			else
+				game_manager.SetState(STATE.PLAYING);
+			sentences.Clear();
+
+			foreach (Sentence sentence in dial.sentences)
+			{
+				sentences.Enqueue(sentence);
+			}
+
+			DisplayNextSentence();
+		}
 	}
 
 	void DisplayNextSentence()

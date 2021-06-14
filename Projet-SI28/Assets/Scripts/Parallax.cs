@@ -9,9 +9,11 @@ public class Parallax : MonoBehaviour
 
 	float length;
 	Vector3 start_pos;
+	float cam_y_start;
 
 	void Start()
 	{
+		cam_y_start = cam.transform.position.y;
 		start_pos = transform.position;
 		length = GetComponent<SpriteRenderer>().bounds.size.x;
 		GameObject go =Instantiate(gameObject, transform.position + Vector3.left * length, Quaternion.identity, transform);
@@ -25,7 +27,8 @@ public class Parallax : MonoBehaviour
 		float distx = cam.transform.position.x * parallax_effect;
 		float temp = cam.transform.position.x * (1 - parallax_effect);
 
-		transform.position = start_pos + Vector3.right * distx;
+		//transform.position = start_pos + Vector3.right * distx;
+		transform.position = new Vector3(start_pos.x + distx, start_pos.y + cam.transform.position.y - cam_y_start, start_pos.z);
 		
 		if (temp > start_pos.x + length)
 		{

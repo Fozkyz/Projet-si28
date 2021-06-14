@@ -32,4 +32,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/N2Intro.unity
     guid: 7a82fea2bfadceb45bb7693d611c8c95
+  - enabled: 1
+    path: Assets/Scenes/Futuristic_Level_1.unity
+    guid: 5e79949473b354842aa364908d2c6bfd
   m_configObjects: {}

@@ -1,7 +1,7 @@
 using UnityEngine;
 using TMPro;
 
-public enum STATE { PLAYING, DIALOGUE, ULTIMATUM, GAMEOVER }
+public enum STATE { PLAYING, DIALOGUE, ULTIMATUM, GAMEOVER, PAUSE }
 
 public class GameManager : MonoBehaviour
 {

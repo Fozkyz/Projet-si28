@@ -43,4 +43,4 @@ MonoBehaviour:
     audio_clip: {fileID: 8300000, guid: 265f75694e64b194b8476be68c48b72c, type: 3}
     duration: 4
     delay: 0
-  stop_action: 0
+  stop_action: 1

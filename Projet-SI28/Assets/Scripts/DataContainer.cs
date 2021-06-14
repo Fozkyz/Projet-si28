@@ -8,7 +8,7 @@ public class DataContainer : SceneBehaviour
     bool waiting;
     int i;
 
-    private DataContainer instance;
+    public static DataContainer instance;
 
 	private void Awake()
 	{
@@ -21,15 +21,15 @@ public class DataContainer : SceneBehaviour
             instance = this;
             DontDestroyOnLoad(transform.gameObject);
 		}
+        Debug.Log("Awake");
 	}
 
 	// Start is called before the first frame update
 	void Start()
     {
-        music_volume = 1f;
-        voice_volume = 1f;
         i = 0;
         waiting = false;
+        Debug.Log("Start");
     }
 
     public void ChangeMusicVolume(float volume)
