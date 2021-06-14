@@ -34,6 +34,11 @@ public class MenuOptionUI : MonoBehaviour
 		go.SetActive(false);
 	}
 
+	public void Quit()
+	{
+		Application.Quit();
+	}
+
 	public void Play()
 	{
 		int index = SceneManager.GetActiveScene().buildIndex;
